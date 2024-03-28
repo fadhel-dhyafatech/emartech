@@ -1,10 +1,10 @@
 import { FC, ReactNode } from "react"
 import { Container, Box, styled } from "@mui/material"
-import emarTechLogo from "../../assets/emartech-logo.png";
+// import emarTechLogo from "../../assets/emartech-logo.png";
 
 
 const StyledBackgroundBox = styled(Box) ({
-  backgroundImage: "url('../../src/assets/auth-login-1.png')",
+  // backgroundImage: "url('/emartech/src/assets/auth-login-1.png')",
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -26,7 +26,7 @@ export const AuthenticationWrapper : FC<{children: ReactNode}> = ({ children }) 
             <img
               alt="EmarTech Logo"
               className="emar-logo"
-              src={emarTechLogo}
+              // src={emarTechLogo}
             />
             <Box>
               {children}
