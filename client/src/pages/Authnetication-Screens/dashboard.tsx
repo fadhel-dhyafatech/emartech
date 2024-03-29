@@ -3,7 +3,7 @@ import { Box, Button, styled } from "@mui/material";
 import { Header } from "./index";
 
 const StyledBackgroundBoxImage = styled(Box) ({
-  backgroundImage: "url('../../../src/assets/landing-image-desktop.png')",
+  backgroundImage: "url('landing-image-desktop.png')",
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -16,7 +16,7 @@ const StyledBackgroundBoxImage = styled(Box) ({
   },
   "@media(min-width: 768px)": {
     display: "block",
-    backgroundImage: "url('../../../src/assets/landing-image-desktop.png')",
+    backgroundImage: "url('landing-image-desktop.png')",
     minHeight: "90vh",
     marginBottom: "100px",
   },
@@ -26,7 +26,7 @@ const StyledBackgroundBoxImage = styled(Box) ({
 });
 
 const StyledBackgroundBoxGradient = styled(Box) ({
-  // backgroundImage: "url('../../../src/assets/landing-image-desktop.png')",
+  // backgroundImage: "url('landing-image-desktop.png')",
   background: "linear-gradient(263.69deg, rgba(6, 150, 88, 0.4) 43.5%, #000000 93.5%)",
   opacity: "0.5",
   width: "100%",

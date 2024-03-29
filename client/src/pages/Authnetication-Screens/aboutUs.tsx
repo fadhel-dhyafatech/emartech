@@ -2,14 +2,14 @@ import { FC } from "react";
 import { Box, styled } from "@mui/material";
 
 const StyledBackgroundBox = styled(Box) ({
-  backgroundImage: "url('../../../src/assets/Rectangle 1363.jpg')",
+  backgroundImage: "url('Rectangle 1363.jpg')",
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
   flex: "1",
   minHeight: "48vh",
   "&.image-box": {
-    backgroundImage: "url('../../../src/assets/Rectangle 1364.jpg')",
+    backgroundImage: "url('Rectangle 1364.jpg')",
   },
   "&.content-box": {
     display: "flex",
@@ -116,7 +116,11 @@ export const AboutUs: FC = () => {
     <StyledBox className="flex-center">
       <StyledBackgroundBox className="content-box">
         <Box className="content-holder">
-          <h4 className="sub-heading-text"><span className="line-span-holder"><span className="line-span"></span><span className="line-span"></span></span>ABOUT US</h4>
+          <h4 className="sub-heading-text">
+            <span className="line-span-holder"><span className="line-span">
+              
+            </span>
+            <span className="line-span"></span></span>ABOUT US</h4>
           <h1 className="heading-text">Build Everything You Needs</h1>
           <p className="para-text">Lorem Ipsum is simply dummy text of the printing and typesetting
   industry. Lorem Ipsum has been  the industry's standard dummy text ever since the 1500s</p>

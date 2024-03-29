@@ -42,7 +42,7 @@ export const Header: FC = () => {
       <MenuToolbar className="menu-container">
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <img
-            src={"../../../src/assets/emartech-logo-white.svg"}
+            src={"emartech-logo-white.svg"}
             alt="logo" style={{ marginRight: "30px" }} />
           <MenuButton className="para-text white-color">Home</MenuButton>
           <MenuButton className="para-text white-color">About</MenuButton>
