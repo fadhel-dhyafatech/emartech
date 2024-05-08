@@ -3,6 +3,7 @@ import { Box, Button, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { StyledBackgroundBox } from "./aboutUs";
 import { StyledBoxContact } from "./contactUs";
+import { CategoryCard } from "../common/categoryCard";
 
 const StyledBoxFooter = styled(StyledBoxContact) ({
   margin: "0 !important",
@@ -103,20 +104,32 @@ export const Footer: FC = () => {
             <p className="para-text white-color">ENTER YOUR EMAIL TO RECEIVE DAILY NEWS.</p>
             <Box className="content-holder">
               <TextField
-              label="Enter your email"
-              variant="outlined"
-              value={email}
-              onChange={handleEmailChange}
-              fullWidth
-              margin="normal"
+                label="Enter your email"
+                variant="outlined"
+                value={email}
+                onChange={handleEmailChange}
+                fullWidth
+                margin="normal"
               />
-              <Button className="para-text white-color auth-btn radius-0" variant="contained" color="primary" onClick={handleSubmit}>
+              <Button 
+                className="para-text white-color auth-btn radius-0" 
+                variant="contained" 
+                color="primary" 
+                onClick={handleSubmit}
+              >
                 Subscribe
               </Button>
             </Box>
           </StyledBoxFooter>
         </Box>
-        <Box sx={{ display: "flex", flexDirection:"column", alignItems:"center", justifyContent: "center", marginTop: "40px" }}>
+        <Box sx={{ 
+          display: "flex",
+          flexDirection:"column",
+          alignItems:"center",
+          justifyContent: "center",
+          marginTop: "40px" 
+        }}
+        >
           <p className="para-text white-color">All rights reserved@ Emartech 2024</p>
         </Box>
       </FooterBox>
