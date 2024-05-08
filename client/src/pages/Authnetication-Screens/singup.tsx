@@ -9,14 +9,19 @@ import {
   Typography,
 } from "@mui/material";
 import { Icon } from "@iconify/react";
-import { FieldTitle, InputField, Select } from "../../components/inputs";
-import { ButtonVariants, InputFieldVariants, UserRoles } from "../../components/constants";
+import { FieldTitle, InputField, Select } from "@/components/inputs";
+import {
+  ButtonVariants,
+  InputFieldVariants,
+  UserRoles,
+} from "@/components/constants";
 import MuiPhoneNumber from "material-ui-phone-number-2";
-import { signUpSchema } from "../../schemas";
-import { signupService } from "../../services/userServiceCalls";
+import { signUpSchema } from "@/schemas";
+import { signupService } from "@/services/userServiceCalls";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "../../hooks/useForm";
-import { AuthenticationWrapper } from "./index";
+import { useForm } from "@/hooks/useForm";
+import { AuthenticationWrapper } from "./authenticationWrapper";
+// import { AuthenticationWrapper } from "./index";
 
 const initialValues = {
   agreementCheckbox: false,
@@ -37,7 +42,7 @@ const DropdownOptions = [
   UserRoles.PROJECT_EXECUTOR,
   UserRoles.SUPPLIER,
   UserRoles.USER,
-] 
+];
 
 export const Signup: FC = () => {
   const navigate = useNavigate();
@@ -47,11 +52,14 @@ export const Signup: FC = () => {
     (values: any) => {
       setIsSubmitting(true);
       const { confirmPassword, role, ...rest } = values;
-      signupService({ role: role.toUpperCase(), ...rest }, (err: any, response: any) => {
-        setIsSubmitting(false);
-        if (err) console.log("-----------err-------", err);
-        if (response) navigate("/login");
-      });
+      signupService(
+        { role: role.toUpperCase(), ...rest },
+        (err: any, response: any) => {
+          setIsSubmitting(false);
+          if (err) console.log("-----------err-------", err);
+          if (response) navigate("/login");
+        }
+      );
     },
     [navigate]
   );
@@ -119,11 +127,14 @@ export const Signup: FC = () => {
   );
 
   return (
-    <AuthenticationWrapper>
+    <AuthenticationWrapper backgroundImageUrl="../../../src/assets/signup.png">
       <form autoComplete="off" onSubmit={handleSubmit}>
         <Typography className="auth-heading">Signup</Typography>
         <Box className="flex-center justify-between sm-flex-col">
-          <Box className="form-container flex-center mr-10">
+          <Box
+            className="form-container flex-center mr-10"
+            sx={{ width: "100%" }}
+          >
             <InputField
               error={!!firstNameError}
               errorTooltip={firstNameError as string}
@@ -174,7 +185,10 @@ export const Signup: FC = () => {
               value={values.email}
             />
           </Box>
-          <Box className="form-container flex-center ml-10">
+          <Box
+            className="form-container flex-center ml-10"
+            sx={{ width: "100%" }}
+          >
             <InputField
               error={!!lastNameError}
               errorTooltip={lastNameError as string}
@@ -235,10 +249,10 @@ export const Signup: FC = () => {
             name="role"
             label="Are you a?"
             labelClassName="input-label"
-            isRequired={false} 
-            onChange={handleChange} 
+            isRequired={false}
+            onChange={handleChange}
             options={DropdownOptions}
-            variant={InputFieldVariants.OUTLINED}       
+            variant={InputFieldVariants.OUTLINED}
           />
         </Box>
         <Box className="flex-center justify-start input-label">

@@ -10,24 +10,24 @@ import {
   Typography,
 } from "@mui/material";
 import { Icon } from "@iconify/react";
-import { signInService } from "../../services/userServiceCalls";
-import { InputField } from "../../components/inputs";
-import { ButtonVariants } from "../../components/constants";
+import { signInService } from "@/services/userServiceCalls";
+import { InputField } from "@/components/inputs";
+import { ButtonVariants } from "@/components/constants";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
-import { useForm } from "../../hooks/useForm";
+import { useForm } from "@/hooks/useForm";
 import { useNavigate } from "react-router-dom";
-import { loginFormSchema } from "../../schemas";
-import { AuthenticationWrapper } from "./index";
-import { StyledCollapse } from "../../components/commonStyledComponents";
+import { loginFormSchema } from "@/schemas";
+
+import { AuthenticationWrapper } from "./authenticationWrapper";
+import { StyledCollapse } from "@/styles";
 
 const initialValues = {
   email: "",
   password: "",
 };
 
-export const Login : FC = () => {
-
+export const Login: FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -52,15 +52,12 @@ export const Login : FC = () => {
   });
 
   return (
-    <AuthenticationWrapper>
+    <AuthenticationWrapper backgroundImageUrl="../../../src/assets/login.png">
       <form autoComplete="off" noValidate onSubmit={handleSubmit}>
         <Typography className="auth-heading">Login</Typography>
         <Box className="form-container flex-center">
-          <StyledCollapse in={loginError}>  
-            <Alert 
-              severity="error"
-              onClose={() => (setLoginError(false))}
-            >
+          <StyledCollapse in={loginError}>
+            <Alert severity="error" onClose={() => setLoginError(false)}>
               Invalid credentials
             </Alert>
           </StyledCollapse>
@@ -80,9 +77,7 @@ export const Login : FC = () => {
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton
-                    onClick={() => setShowPassword((prev) => !prev)}
-                  >
+                  <IconButton onClick={() => setShowPassword((prev) => !prev)}>
                     {showPassword ? (
                       <Icon icon="eva:eye-fill" />
                     ) : (
@@ -100,35 +95,29 @@ export const Login : FC = () => {
             type="submit"
             variant={ButtonVariants.OUTLINED}
           >
-        Login
+            Login
           </Button>
         </Box>
         <Box className="link-holder">
           <Link href="/forgotPassword" className="link input-label">
-        Forgot Password?
+            Forgot Password?
           </Link>
         </Box>
         <Box>
           <Box className="flex-center position-relative divider-box">
             <Divider />
             <Box component={"span"} className="span-content input-label">
-          Or login using
+              Or login using
             </Box>
           </Box>
           <Box className="flex-center flex-col">
-            <Button
-              className="input-label"
-              variant={ButtonVariants.OUTLINED}
-            >
+            <Button className="input-label" variant={ButtonVariants.OUTLINED}>
               <GoogleIcon />
-          Continue with Google
+              Continue with Google
             </Button>
-            <Button
-              className="input-label"
-              variant={ButtonVariants.OUTLINED}
-            >
+            <Button className="input-label" variant={ButtonVariants.OUTLINED}>
               <AppleIcon />
-          Continue with Apple
+              Continue with Apple
             </Button>
           </Box>
           <Box className="flex-center sign-up-box">
@@ -137,9 +126,9 @@ export const Login : FC = () => {
               variant="body1"
               gutterBottom
             >
-          Don't have an account?
+              Don't have an account?
               <Link href="/signup" className="link sign-up">
-            Sign Up
+                Sign Up
               </Link>
             </Typography>
           </Box>
