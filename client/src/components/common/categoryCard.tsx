@@ -8,18 +8,32 @@ import React, {
   Typography,
 } from "@mui/material";
 import { FC } from "react";
-import Button from "@mui/material/Button";
 
 export const CategoryCard: FC<any> = ({ name, image }) => {
   return (
-    <Grid item xs={6} sm={4} md={3} lg={2} sx={{ marginY: 2 }}>
+    <Grid
+      item
+      xs={6}
+      sm={4}
+      md={3}
+      lg={2}
+      sx={{
+        marginY: 2,
+      }}
+    >
       <Card
         sx={{
-          width: 187.58,
-          height: 151.94,
+          width: 200.58,
+          height: 199.77,
           display: "flex",
+
           flexDirection: "column",
           justifyContent: "space-evenly",
+          border: "0.94px solid #E6E6E6",
+          "&:hover": {
+            border: "0.94px solid #00B207",
+            boxShadow: "0 1px 4px rgba(0, 178, 7, 1)",
+          },
         }}
       >
         <CardContent>
@@ -27,45 +41,27 @@ export const CategoryCard: FC<any> = ({ name, image }) => {
             sx={{
               borderRadius: "50%",
               position: "relative",
-              marginLeft: "-1px",
               display: "flex",
               justifyContent: "center",
             }}
           >
             <Box
               sx={{
-                width: "50px",
-                height: "50px",
+                width: "70px",
+                height: "70px",
                 borderRadius: "50%",
                 justifyContent: "center",
                 alignItems: "center",
                 backgroundColor: "white",
                 display: "flex",
-                border: "1px solid black",
               }}
             >
-              <Avatar
-                src={image}
-                sx={{ width: "100%", height: "100%", zIndex: 1 }}
-              />
+              <Avatar src={image} sx={{ width: "100%", height: "100%" }} />
             </Box>
           </Box>
         </CardContent>
-        <CardActions sx={{ alignSelf: "center" }}>
-          {/* <Button
-            sx={{
-              border: "none",
-              background: "none",
-              boxShadow: "none",
-              padding: "0",
-              "& span:hover": {
-                textDecoration: "underline",
-              },
-            }}
-            href="#text-buttons"
-          > */}
+        <CardActions sx={{ alignSelf: "center", color: "inherit" }}>
           <Typography variant="caption">{name}</Typography>
-          {/* </Button> */}
         </CardActions>
       </Card>
     </Grid>

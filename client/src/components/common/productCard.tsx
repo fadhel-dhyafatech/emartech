@@ -1,9 +1,8 @@
-import React, {
+import {
   Avatar,
   Box,
   Card,
   CardContent,
-  CardHeader,
   Grid,
   Rating,
   Typography,
@@ -27,10 +26,15 @@ export const ProductCard: FC<ProductCardProps> = ({
   rating,
 }) => {
   return (
-    <Grid item xs={12} sm={6} md={4} lg={2.2} xl={2}>
-      <Card sx={{ width: 248 }}>
+    <Grid item xs={12} sm={6} md={4} lg={2.39} xl={2}>
+      <Card
+        sx={{
+          borderRadius: 0,
+          border: "0.94px solid #E6E6E6",
+        }}
+      >
         <CardContent>
-          <Grid container spacing={1} alignItems="center">
+          <Grid container alignItems="center">
             {/* First Row: Sale Label and Avatar */}
             <Grid item xs={12}>
               <Box position="relative">
@@ -44,7 +48,6 @@ export const ProductCard: FC<ProductCardProps> = ({
                     bgcolor: "red",
                     color: "white",
                     padding: "0px 8px",
-                    borderRadius: 4,
                   }}
                 >
                   Sale 50% off
