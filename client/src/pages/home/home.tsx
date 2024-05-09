@@ -149,12 +149,13 @@ export const HomePage = () => {
       <StyledBox>
         {/* Banner Section */}
         <StyledBackgroundBox className="content-box no-background ">
-          <Grid sx={{ marginTop: 15, marginBottom: 5 }} container spacing={0}>
+          <Grid sx={{ marginTop: 15, marginBottom: 5 }} container spacing={2}>
             {/* First Column */}
             <Grid item xs={7}>
               <Paper
                 style={{
                   height: "100%",
+                  borderRadius: 10,
                 }}
                 elevation={8}
               >
@@ -165,6 +166,7 @@ export const HomePage = () => {
                     overflow: "hidden",
                     maxWidth: "818.45px",
                     height: "100%",
+                    borderRadius: 10,
                   }}
                 >
                   <img
@@ -202,21 +204,34 @@ export const HomePage = () => {
                     </Typography>
                     <Box
                       component="section"
-                      flexDirection={"column"}
-                      sx={{ borderLeft: 4, color: "#84D187" }}
+                      sx={{
+                        borderLeft: 4,
+                        color: "#84D187",
+                      }}
                     >
-                      <Box sx={{ marginLeft: 1 }}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          margin: 1,
+                          flexDirection: "column",
+                        }}
+                      >
                         <Typography
                           className="para-text"
                           variant="body1"
                           color="white"
+                          sx={{
+                            paddingY: 2,
+                          }}
                         >
                           Sale up to
                           <span
                             style={{
                               backgroundColor: "#39C64E",
                               marginLeft: 4,
-                              padding: "0px 4px",
+                              padding: "0px 6px",
                               borderRadius: 6,
                             }}
                           >
@@ -260,10 +275,16 @@ export const HomePage = () => {
               </Paper>
             </Grid>
             {/* Second Column */}
-            <Grid item container xs={5} spacing={0}>
+            <Grid item container xs={5} spacing={2}>
               {/* First Row */}
               <Grid item xs={12}>
-                <Paper style={{ height: "100%", position: "relative" }}>
+                <Paper
+                  style={{
+                    height: "100%",
+                    position: "relative",
+                    borderRadius: 10,
+                  }}
+                >
                   <Box
                     position="absolute"
                     top={0}
@@ -271,6 +292,7 @@ export const HomePage = () => {
                     right={0}
                     bottom={0}
                     style={{
+                      borderRadius: 10,
                       backgroundImage: `url(${ImagesPath.HomeBanner02})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
@@ -285,6 +307,7 @@ export const HomePage = () => {
                     width="100%"
                     height="100%"
                     style={{
+                      borderRadius: 10,
                       backgroundImage:
                         "linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(6, 150, 88, 0.2)",
                     }}
@@ -338,7 +361,13 @@ export const HomePage = () => {
               </Grid>
               {/* Second Row */}
               <Grid item xs={12}>
-                <Paper style={{ height: "100%", position: "relative" }}>
+                <Paper
+                  style={{
+                    height: "100%",
+                    position: "relative",
+                    borderRadius: 10,
+                  }}
+                >
                   {/* Image with text */}
 
                   <Box
@@ -348,6 +377,7 @@ export const HomePage = () => {
                     right={0}
                     bottom={0}
                     style={{
+                      borderRadius: 10,
                       backgroundImage: `url(${ImagesPath.HomeBanner03})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
@@ -362,6 +392,7 @@ export const HomePage = () => {
                     width="100%"
                     height="100%"
                     style={{
+                      borderRadius: 10,
                       backgroundImage:
                         "linear-gradient(to right, rgba(0, 0, 0, 0.8) , rgba(6, 150, 88, 0.6)",
                     }}
@@ -373,21 +404,18 @@ export const HomePage = () => {
                     right={0}
                     top={0}
                     alignSelf={"center"}
-                    p={2}
-                    width="100%"
                   >
                     <Typography
                       variant="body1"
-                      fontWeight={"600"}
                       color="white"
                       sx={{ textAlign: "center" }}
                     >
                       Best Deal
                     </Typography>
                     <Typography
-                      sx={{ textAlign: "center" }}
-                      variant="h6"
+                      sx={{ textAlign: "center", paddingX: 14 }}
                       fontWeight={"600"}
+                      fontSize={"30px"}
                       color="white"
                     >
                       Special Products Deal of the Month
