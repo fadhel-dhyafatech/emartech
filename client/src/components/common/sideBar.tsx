@@ -111,7 +111,6 @@ import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { ListItemButton } from "@mui/material";
-import { AppBarComponent } from "@/components/common";
 
 const drawerWidth = 240;
 
@@ -215,27 +214,7 @@ export const Sidebar = ({ dummyList }: SidebarProps) => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      {/* <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
 
-      <AppBarComponent />
       <Drawer variant="permanent" open={open}>
         <Box sx={{ height: "100%", backgroundColor: "#38C64E" }}>
           <DrawerHeader>

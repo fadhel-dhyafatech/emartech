@@ -11,6 +11,17 @@ import HomeBanner03 from "@/assets/images/HomeBanner03.jpg";
 import GetAQuoteIcon from "@/assets/images/GetAQuoteIcon.svg";
 import WhiteLogo from "@/assets/logo-white.png";
 
+// only for dummy images
+import DummyOne from "@/assets/dummy/tools.jpg";
+import DummyTwo from "@/assets/dummy/tools-two.jpg";
+import DummyThree from "@/assets/dummy/toolSet.jpg";
+
+export const TempImages = {
+  DummyOne,
+  DummyTwo,
+  DummyThree,
+};
+
 export const ImagesPath = {
   HomeBanner01,
   HomeBanner02,

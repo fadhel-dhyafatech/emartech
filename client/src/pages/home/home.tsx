@@ -5,7 +5,7 @@ import { CategoryCard, CustomCarousel, ProductCard } from "@/components/common";
 import { Footer, Header } from "@/components/landingPageComp";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { ImagesPath, SellersImages } from "@/constants";
+import { ImagesPath, SellersImages, TempImages } from "@/constants";
 import { RequestBanner } from "@/components/home";
 
 export const HomePage = () => {
@@ -488,7 +488,7 @@ export const HomePage = () => {
             {sampleProducts.map((product) => (
               <ProductCard
                 key={product.id}
-                avatar={product.avatar}
+                avatar={TempImages.DummyTwo}
                 title={product.title}
                 discountedPrice={product.discountedPrice}
                 actualPrice={product.actualPrice}
@@ -557,7 +557,7 @@ export const HomePage = () => {
             {sampleProducts.map((product) => (
               <ProductCard
                 key={product.id}
-                avatar={product.avatar}
+                avatar={TempImages.DummyThree}
                 title={product.title}
                 discountedPrice={product.discountedPrice}
                 actualPrice={product.actualPrice}
