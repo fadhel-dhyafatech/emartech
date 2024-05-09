@@ -26,10 +26,11 @@ export const ProductCard: FC<ProductCardProps> = ({
   rating,
 }) => {
   return (
-    <Grid item xs={12} sm={6} md={4} lg={2.39} xl={2}>
+    <Grid item xs={12} sm={6} md={4} lg={2.39} xl={2} marginY={2}>
       <Card
         sx={{
           borderRadius: 0,
+          boxShadow: 0,
           border: "0.94px solid #E6E6E6",
         }}
       >
@@ -45,12 +46,13 @@ export const ProductCard: FC<ProductCardProps> = ({
                     position: "absolute",
                     top: 0,
                     left: 0,
-                    bgcolor: "red",
+                    bgcolor: "#EA4B48",
                     color: "white",
                     padding: "0px 8px",
+                    borderRadius: "3.76px",
                   }}
                 >
-                  Sale 50% off
+                  Sale 50%
                 </Typography>
                 <Box display="flex" justifyContent="center" padding={8}>
                   <Avatar src={avatar} />
@@ -59,26 +61,30 @@ export const ProductCard: FC<ProductCardProps> = ({
             </Grid>
             {/*  Name of the product */}
             <Grid item xs={12}>
-              <Typography variant="h6">{title}</Typography>
+              <Typography fontSize={13} fontWeight={"700"}>
+                {title}
+              </Typography>
             </Grid>
             {/* Third Row: Price and Cart Icon */}
             <Grid item xs={12}>
               <Grid container>
                 {/* Actual Price */}
-                <Grid item xs={5} textAlign="center" flexDirection={"row"}>
+                <Grid item xs={5}>
                   <Typography
-                    variant="h6"
+                    fontWeight={"500"}
+                    fontSize={15}
                     component="div"
                     sx={{ fontSize: 15 }}
                   >
                     <Box>{discountedPrice}</Box>
                   </Typography>
                 </Grid>
-                <Grid item xs={5} textAlign="center" flexDirection={"row"}>
+                <Grid item xs={5}>
                   <Typography
                     variant="h6"
                     component="div"
                     sx={{ fontSize: 15 }}
+                    color="#999999"
                   >
                     <Box
                       component="span"
@@ -90,15 +96,13 @@ export const ProductCard: FC<ProductCardProps> = ({
                 </Grid>
                 {/*  Cart Icon */}
                 <Grid item xs={2}>
-                  <Box display="flex" justifyContent="center">
-                    <ShoppingCartIcon />
-                  </Box>
+                  <ShoppingCartIcon />
                 </Grid>
               </Grid>
             </Grid>
             {/* Fourth Row: Rating */}
             <Grid item xs={12}>
-              <Box display="flex">
+              <Box>
                 <Rating value={rating} precision={0.5} readOnly />
               </Box>
             </Grid>
