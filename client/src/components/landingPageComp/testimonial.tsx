@@ -12,7 +12,7 @@ import { Rating } from "@mui/material";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper/modules";
 import { StyledBox } from "./ourServices";
-import { StyledBackgroundBox } from "./aboutUs";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -107,6 +107,7 @@ const SwiperButtonNext: FC<any> = ({ isEnd, isStart }) => {
 };
 
 import "swiper/swiper-bundle.css";
+import { StyledBackgroundBox } from "@/styles";
 
 export const Testimonial: FC = () => {
   const [isEnd, setIsEnd] = useState(false);

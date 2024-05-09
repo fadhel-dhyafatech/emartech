@@ -7,7 +7,7 @@ import {
   styled,
   Typography,
 } from "@mui/material";
-import { StyledBackgroundBox } from "./aboutUs";
+import { StyledBackgroundBox } from "@/styles";
 
 const CardHeaderStyle = {
   display: "flex",

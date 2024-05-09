@@ -1,11 +1,12 @@
 import { FC, useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { StyledBackgroundBox } from "./aboutUs";
+
 import { StyledBoxContact } from "./contactUs";
 import { CategoryCard } from "../common/categoryCard";
+import { StyledBackgroundBox } from "@/styles";
 
-const StyledBoxFooter = styled(StyledBoxContact) ({
+const StyledBoxFooter = styled(StyledBoxContact)({
   margin: "0 !important",
   ".content-holder": {
     ".MuiFormLabel-root": {
@@ -13,11 +14,11 @@ const StyledBoxFooter = styled(StyledBoxContact) ({
     },
     ".MuiOutlinedInput-notchedOutline": {
       borderColor: "#fff",
-    }
+    },
   },
 });
 
-const FooterBox = styled(StyledBackgroundBox) ({
+const FooterBox = styled(StyledBackgroundBox)({
   margin: "0",
   "&.content-box": {
     display: "block",
@@ -25,9 +26,7 @@ const FooterBox = styled(StyledBackgroundBox) ({
   ".sub-heading-text": {
     margin: "10px 0 30px 0",
   },
-  "@media(min-width: 768px)": {
-    
-  },
+  "@media(min-width: 768px)": {},
 });
 
 const GradientBox = styled(Box)(() => ({
@@ -50,22 +49,28 @@ export const Footer: FC = () => {
   return (
     <GradientBox>
       <FooterBox className="content-box no-background">
-        <Box sx={{ display: "flex", alignItems: "flex-start", justifyContent: "flex-start", flexDirection: "row" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "flex-start",
+            flexDirection: "row",
+          }}
+        >
           <Box style={{ flexBasis: "25%", margin: "0px 10px 0 0" }}>
             <img src="../../../src/assets/emartech-logo-white.svg" />
             <p className="para-text white-color">
-              Lorem Ipsum is simply dummy 
-              text of the printing and typesetting 
-              industry. Lorem Ipsum has been 
-              the industry's standard dummy text ever since the 1500s
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s
             </p>
           </Box>
-          
+
           <Box style={{ flexBasis: "25%", margin: "0px 5px 0 0" }}>
             <h4 className="sub-heading-text">
               <span className="line-span-holder">
-                <span className="line-span white"/>
-                <span className="line-span white"/>
+                <span className="line-span white" />
+                <span className="line-span white" />
               </span>
               INFORMATION
             </h4>
@@ -77,31 +82,44 @@ export const Footer: FC = () => {
           <Box style={{ flexBasis: "25%", margin: "0px 5px 0 0" }}>
             <h4 className="sub-heading-text">
               <span className="line-span-holder">
-                <span className="line-span white"/>
-                <span className="line-span white"/>
+                <span className="line-span white" />
+                <span className="line-span white" />
               </span>
               CONTACTS INFO
             </h4>
 
-            <p className="para-text white-color">Box No. 214396, Deira, Dubai</p>
+            <p className="para-text white-color">
+              Box No. 214396, Deira, Dubai
+            </p>
             <p className="para-text white-color">+971 456 7890 - Office</p>
             <p className="para-text white-color">Info@gmail.com</p>
             <Box>
-              <img src="../../src/assets/Vector.png" style={{ margin: "0 15px 0 0" }}/>
-              <img src="../../src/assets/Vector (1).png" style={{ margin: "0 15px 0 0" }}/>
-              <img src="../../src/assets/Vector (2).png" style={{ margin: "0 15px 0 0" }}/>
+              <img
+                src="../../src/assets/Vector.png"
+                style={{ margin: "0 15px 0 0" }}
+              />
+              <img
+                src="../../src/assets/Vector (1).png"
+                style={{ margin: "0 15px 0 0" }}
+              />
+              <img
+                src="../../src/assets/Vector (2).png"
+                style={{ margin: "0 15px 0 0" }}
+              />
             </Box>
           </Box>
 
           <StyledBoxFooter style={{ flexBasis: "25%", margin: "0px 5px 0 0" }}>
             <h4 className="sub-heading-text">
               <span className="line-span-holder">
-                <span className="line-span white"/>
-                <span className="line-span white"/>
+                <span className="line-span white" />
+                <span className="line-span white" />
               </span>
               NEWSLETTER
             </h4>
-            <p className="para-text white-color">ENTER YOUR EMAIL TO RECEIVE DAILY NEWS.</p>
+            <p className="para-text white-color">
+              ENTER YOUR EMAIL TO RECEIVE DAILY NEWS.
+            </p>
             <Box className="content-holder">
               <TextField
                 label="Enter your email"
@@ -111,10 +129,10 @@ export const Footer: FC = () => {
                 fullWidth
                 margin="normal"
               />
-              <Button 
-                className="para-text white-color auth-btn radius-0" 
-                variant="contained" 
-                color="primary" 
+              <Button
+                className="para-text white-color auth-btn radius-0"
+                variant="contained"
+                color="primary"
                 onClick={handleSubmit}
               >
                 Subscribe
@@ -122,15 +140,18 @@ export const Footer: FC = () => {
             </Box>
           </StyledBoxFooter>
         </Box>
-        <Box sx={{ 
-          display: "flex",
-          flexDirection:"column",
-          alignItems:"center",
-          justifyContent: "center",
-          marginTop: "40px" 
-        }}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: "40px",
+          }}
         >
-          <p className="para-text white-color">All rights reserved@ Emartech 2024</p>
+          <p className="para-text white-color">
+            All rights reserved@ Emartech 2024
+          </p>
         </Box>
       </FooterBox>
     </GradientBox>

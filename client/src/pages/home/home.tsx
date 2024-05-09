@@ -1,11 +1,12 @@
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
 
-import { StyledBox } from "@/styles/common";
-import { CategoryCard, ProductCard } from "@/components/common";
-import { Footer } from "@/components/landingPageComp";
-import bannerimage from "@/assets/IMG-20240325-WA0010.jpg";
-import bannerimage2 from "@/assets/IMG-20240325-WA0008.jpg";
-import bannerimage3 from "@/assets/IMG-20240325-WA0009.jpg";
+import { StyledBackgroundBox, StyledBox } from "@/styles/common";
+import { CategoryCard, CustomCarousel, ProductCard } from "@/components/common";
+import { Footer, Header } from "@/components/landingPageComp";
+
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { ImagesPath, SellersImages } from "@/constants";
+import { RequestBanner } from "@/components/home";
 
 export const HomePage = () => {
   const categories = [
@@ -141,105 +142,273 @@ export const HomePage = () => {
 
   return (
     <>
-      {/* <Box>
+      <Box>
         <Header />
-      </Box> */}
+      </Box>
 
       <StyledBox>
         {/* Banner Section */}
-
-        {/* <Grid className="flex-center" container spacing={2}> */}
-        {/* First Section */}
-        {/* <Grid item xs={12}> */}
-        <Grid container spacing={2} sx={{ backgroundColor: "red" }}>
-          {/* First Column */}
-          <Grid item xs={8}>
-            <Paper elevation={8}>
-              {/* Image with text */}
-              <Box position="relative">
-                <img
-                  src={bannerimage}
-                  alt="Image not found"
-                  style={{ width: "100%", height: "100%" }}
-                />
+        <StyledBackgroundBox className="content-box no-background ">
+          <Grid sx={{ marginTop: 15, marginBottom: 5 }} container spacing={0}>
+            {/* First Column */}
+            <Grid item xs={7}>
+              <Paper
+                style={{
+                  height: "100%",
+                }}
+                elevation={8}
+              >
+                {/* Image with text */}
                 <Box
-                  position="absolute"
-                  top="50%"
-                  left="50%"
-                  transform="translate(-50%, -50%)"
-                  textAlign="center"
-                  bgcolor="rgba(0, 0, 0, 0.5)" /* Semi-transparent background */
-                  p={2} /* Padding */
+                  position="relative"
+                  style={{
+                    overflow: "hidden",
+                    maxWidth: "818.45px",
+                    height: "100%",
+                  }}
                 >
-                  <Typography variant="body1" color="white">
-                    Text on First Column Image
-                  </Typography>
-                  <Button variant="contained" color="primary" size="large">
-                    Your Button
-                  </Button>
-                </Box>
-              </Box>
-            </Paper>
-          </Grid>
-          {/* Second Column */}
-          <Grid item xs={4}>
-            <Grid
-              container
-              spacing={2}
-              direction="column"
-              sx={{ backgroundColor: "green" }}
-            >
-              {/* First Row */}
-              <Grid item>
-                <Paper>
-                  {/* Image with text */}
-                  <Box position="relative">
-                    <img
-                      src={bannerimage2}
-                      alt="Second Column First Row Image"
-                      style={{ width: "100%" }}
-                    />
-                    <Box
-                      position="absolute"
-                      bottom={0}
-                      left={0}
-                      bgcolor="rgba(0, 0, 0, 0.5)" /* Semi-transparent background */
-                      p={2} /* Padding */
-                      width="100%"
+                  <img
+                    src={ImagesPath.HomeBanner01}
+                    alt="Image not found"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  />
+
+                  <Box
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    width="100%"
+                    height="100%"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(6, 150, 88, 0.6)",
+                    }}
+                  />
+
+                  <Box position="absolute" top="25%" left="0" p={2} zIndex={1}>
+                    <Typography
+                      variant="h3"
+                      className="heading-text"
+                      color="white"
+                      sx={{ width: "70%", fontWeight: "500" }}
                     >
-                      <Typography variant="body1" color="white">
-                        Text on Second Column First Row
+                      Build Everything You Need
+                    </Typography>
+                    <Box
+                      component="section"
+                      flexDirection={"column"}
+                      sx={{ borderLeft: 4, color: "#84D187" }}
+                    >
+                      <Box sx={{ marginLeft: 1 }}>
+                        <Typography
+                          className="para-text"
+                          variant="body1"
+                          color="white"
+                        >
+                          Sale up to
+                          <span
+                            style={{
+                              backgroundColor: "#39C64E",
+                              marginLeft: 4,
+                              padding: "0px 4px",
+                              borderRadius: 6,
+                            }}
+                          >
+                            30% OFF
+                          </span>
+                        </Typography>
+
+                        <Typography
+                          className="para-text"
+                          variant="body1"
+                          color="#FFFFFF"
+                        >
+                          Free Shipping on all your order
+                        </Typography>
+                      </Box>
+                    </Box>
+                    <Box sx={{}}>
+                      <Button
+                        className="para-text   radius-0"
+                        variant="contained"
+                        type="submit"
+                        style={{
+                          borderRadius: 100,
+                          backgroundColor: "#FFF",
+                          marginTop: 10,
+                          width: "25%",
+                        }}
+                      >
+                        <Typography
+                          variant="body1"
+                          fontWeight={"600"}
+                          color="#39C64E"
+                        >
+                          Send Now
+                        </Typography>
+                        <ArrowForwardIcon style={{ fill: "#39C64E" }} />
+                      </Button>
+                    </Box>
+                  </Box>
+                </Box>
+              </Paper>
+            </Grid>
+            {/* Second Column */}
+            <Grid item container xs={5} spacing={0}>
+              {/* First Row */}
+              <Grid item xs={12}>
+                <Paper style={{ height: "100%", position: "relative" }}>
+                  <Box
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    right={0}
+                    bottom={0}
+                    style={{
+                      backgroundImage: `url(${ImagesPath.HomeBanner02})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  />
+
+                  <Box
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    width="100%"
+                    height="100%"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(6, 150, 88, 0.2)",
+                    }}
+                  />
+
+                  <Box
+                    width={"100%"}
+                    position="absolute"
+                    top={10}
+                    left={0}
+                    p={2}
+                  >
+                    <Box
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems={"center"}
+                    >
+                      <Typography color="white">
+                        Summer Sale
+                        <span style={{ fontWeight: "600", marginLeft: 2 }}>
+                          75% OFF
+                        </span>
                       </Typography>
-                      <Button variant="contained" color="primary" size="large">
-                        Your Button
+                      <Typography
+                        variant="body1"
+                        fontWeight={"600"}
+                        color="white"
+                      >
+                        Construction Tools
+                      </Typography>
+                    </Box>
+                    <Box position="absolute" sx={{ width: "30%" }} right={1}>
+                      <Button
+                        className="para-text  radius-0"
+                        variant="text"
+                        type="submit"
+                        sx={{ borderWidth: 0 }}
+                      >
+                        <Typography
+                          variant="body1"
+                          fontWeight={"600"}
+                          color="#39C64E"
+                        >
+                          Shop Now
+                        </Typography>
+                        <ArrowForwardIcon style={{ fill: "#39C64E" }} />
                       </Button>
                     </Box>
                   </Box>
                 </Paper>
               </Grid>
               {/* Second Row */}
-              <Grid item>
-                <Paper>
+              <Grid item xs={12}>
+                <Paper style={{ height: "100%", position: "relative" }}>
                   {/* Image with text */}
-                  <Box position="relative">
-                    <img
-                      src={bannerimage3}
-                      alt="Second Column Second Row Image"
-                      style={{ width: "100%" }}
-                    />
-                    <Box
-                      position="absolute"
-                      bottom={0}
-                      left={0}
-                      bgcolor="rgba(0, 0, 0, 0.5)" /* Semi-transparent background */
-                      p={2} /* Padding */
-                      width="100%"
+
+                  <Box
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    right={0}
+                    bottom={0}
+                    style={{
+                      backgroundImage: `url(${ImagesPath.HomeBanner03})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  />
+
+                  <Box
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    width="100%"
+                    height="100%"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to right, rgba(0, 0, 0, 0.8) , rgba(6, 150, 88, 0.6)",
+                    }}
+                  />
+                  <Box
+                    position="absolute"
+                    bottom={0}
+                    left={0}
+                    right={0}
+                    top={0}
+                    alignSelf={"center"}
+                    p={2}
+                    width="100%"
+                  >
+                    <Typography
+                      variant="body1"
+                      fontWeight={"600"}
+                      color="white"
+                      sx={{ textAlign: "center" }}
                     >
-                      <Typography variant="body1" color="white">
-                        Text on Second Column Second Row
-                      </Typography>
-                      <Button variant="contained" color="primary" size="large">
-                        Your Button
+                      Best Deal
+                    </Typography>
+                    <Typography
+                      sx={{ textAlign: "center" }}
+                      variant="h6"
+                      fontWeight={"600"}
+                      color="white"
+                    >
+                      Special Products Deal of the Month
+                    </Typography>
+
+                    <Box>
+                      <Button
+                        className="para-text   radius-0"
+                        variant="text"
+                        type="submit"
+                        sx={{ borderWidth: 0, alignSelf: "center" }}
+                      >
+                        <Typography
+                          sx={{ textAlign: "center" }}
+                          variant="body1"
+                          fontWeight={"600"}
+                          color="#39C64E"
+                        >
+                          Shop Now
+                        </Typography>
+                        <ArrowForwardIcon style={{ fill: "#39C64E" }} />
                       </Button>
                     </Box>
                   </Box>
@@ -247,24 +416,47 @@ export const HomePage = () => {
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-        {/* </Grid> */}
-        {/* </Grid> */}
+          {/* CATEGORIES SECTION */}
 
-        {/* CATEGORIES SECTION */}
-        <Box sx={{ flexDirection: "column" }}>
-          <Typography variant="h6">OUR CATEGORIES</Typography>
-          <Grid container>
+          <h4 className="sub-heading-text">
+            <span className="line-span-holder">
+              <span className="line-span" />
+              <span className="line-span" />
+            </span>
+            OUR CATEGORIES
+          </h4>
+
+          <Grid
+            container
+            sx={{
+              marginY: 6,
+              width: "100%",
+            }}
+          >
             {categories.map(({ name }) => (
               <CategoryCard name={name} />
             ))}
           </Grid>
-        </Box>
 
-        {/* PRODUCTS SALE SECTION */}
-        <Box sx={{ flexDirection: "column", marginY: 10 }}>
-          <Typography variant="h6">FLASH SALE</Typography>
-          <Grid container>
+          {/* PRODUCTS SALE SECTION */}
+
+          <h4 className="sub-heading-text">
+            <span className="line-span-holder">
+              <span className="line-span" />
+              <span className="line-span" />
+            </span>
+            FLASH SALE
+          </h4>
+
+          <Grid
+            container
+            sx={{
+              marginY: 6,
+              width: "100%",
+            }}
+            alignItems="center"
+            justifyContent="center"
+          >
             {sampleProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -276,45 +468,64 @@ export const HomePage = () => {
               />
             ))}
           </Grid>
-        </Box>
 
-        {/* TRUSTED SELLERS */}
+          {/* TRUSTED SELLERS */}
 
-        <Box sx={{ flexDirection: "column", marginY: 10 }}>
-          <Typography variant="h6">OUR TRUSTED SELLERS </Typography>
-
-          <Box sx={{ display: "flex" }}>
-            <Box>
-              <img
-                src="../../src/assets/Rectangle 1371.png"
-                style={{ maxWidth: "100%", width: "auto", height: "100%" }}
-              />
-            </Box>
-            <Box>
-              <img
-                src="../../src/assets/Rectangle 1372.png"
-                style={{ maxWidth: "100%", width: "auto", height: "100%" }}
-              />
-            </Box>
-            <Box>
-              <img
-                src="../../src/assets/Rectangle 1373.png"
-                style={{ maxWidth: "100%", width: "auto", height: "100%" }}
-              />
-            </Box>
-            <Box>
-              <img
-                src="../../src/assets/Rectangle 1374.png"
-                style={{ maxWidth: "100%", width: "auto", height: "100%" }}
-              />
+          <h4 className="sub-heading-text">
+            <span className="line-span-holder">
+              <span className="line-span" />
+              <span className="line-span" />
+            </span>
+            OUR TRUSTED SELLERS
+          </h4>
+          <Box sx={{ flexDirection: "column", marginY: 10 }}>
+            <Box sx={{ display: "flex" }}>
+              <Box>
+                <img
+                  src="../../src/assets/Rectangle 1371.png"
+                  style={{ maxWidth: "100%", width: "auto", height: "100%" }}
+                />
+              </Box>
+              <Box>
+                <img
+                  src="../../src/assets/Rectangle 1372.png"
+                  style={{ maxWidth: "100%", width: "auto", height: "100%" }}
+                />
+              </Box>
+              <Box>
+                <img
+                  src="../../src/assets/Rectangle 1373.png"
+                  style={{ maxWidth: "100%", width: "auto", height: "100%" }}
+                />
+              </Box>
+              <Box>
+                <img
+                  src="../../src/assets/Rectangle 1374.png"
+                  style={{ maxWidth: "100%", width: "auto", height: "100%" }}
+                />
+              </Box>
             </Box>
           </Box>
-        </Box>
 
-        {/* SELLING PRODUCTS SECTION */}
-        <Box sx={{ flexDirection: "column", marginY: 10 }}>
-          <Typography variant="h6">OUR SELLING PRODUCTS</Typography>
-          <Grid container>
+          {/* SELLING PRODUCTS SECTION */}
+
+          <h4 className="sub-heading-text">
+            <span className="line-span-holder">
+              <span className="line-span" />
+              <span className="line-span" />
+            </span>
+            OUR SELLING PRODUCTS
+          </h4>
+
+          <Grid
+            container
+            sx={{
+              marginY: 6,
+              width: "100%",
+            }}
+            alignItems="center"
+            justifyContent="center"
+          >
             {sampleProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -326,9 +537,30 @@ export const HomePage = () => {
               />
             ))}
           </Grid>
-        </Box>
 
-        {/* SHOP BY BRANDS */}
+          {/* SHOP BY BRANDS */}
+
+          <h4 className="sub-heading-text">
+            <span className="line-span-holder">
+              <span className="line-span" />
+              <span className="line-span" />
+            </span>
+            SHOP BY BRANDS
+          </h4>
+
+          <CustomCarousel
+            logos={[
+              SellersImages.BrandImage01,
+              SellersImages.BrandImage02,
+              SellersImages.BrandImage03,
+              SellersImages.BrandImage04,
+              SellersImages.BrandImage05,
+              SellersImages.BrandImage06,
+            ]}
+          />
+
+          <RequestBanner />
+        </StyledBackgroundBox>
       </StyledBox>
       <Footer />
     </>
