@@ -22,6 +22,15 @@ export const RequestBanner = () => {
     borderRadius: 10,
   });
 
+  const BackgroundImage = styled("div")({
+    width: "100%",
+    height: "100%",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    border: "0.94px solid #E6E6E6",
+    backgroundImage: "url('../../src/assets/images/RequestBanner.jpg')"
+  });
   const Image = styled("img")({
     width: "100%",
     height: "100%",
@@ -37,8 +46,9 @@ export const RequestBanner = () => {
     width: "100%",
     height: "100%",
     zIndex: 0,
-    background:
-      "linear-gradient(to right, rgba(0, 0, 0, 0.8) , rgba(6, 150, 88, 0.6))",
+    background: "linear-gradient(263.69deg, rgba(6, 150, 88, 0.8) 9.61%, #000000 93.5%)",
+    boxShadow: "0px 4px 4px 0px #00000040",
+    opacity:0.5,
   });
 
   const ContentContainer = styled(Box)({
@@ -47,12 +57,15 @@ export const RequestBanner = () => {
     left: "10%",
     p: 2,
     zIndex: 1,
+    "& h4": {
+      fontWeight: "700",
+    }
   });
   return (
     <Grid sx={{ width: "100%", marginY: 6 }}>
       <Grid item xs={12}>
         <ImageContainer>
-          <Image src={ImagesPath.RequestBanner} alt="Image" />
+          <BackgroundImage />
           {!isSmallScreen && <GradientOverlay />}
 
           <ContentContainer>
@@ -62,13 +75,14 @@ export const RequestBanner = () => {
               sx={{ width: "65%", height: "65%" }}
             />
 
-            <Typography variant="h4" color="white" sx={{ marginY: 2 }}>
+            <Typography variant="h4" color="white" sx={{ marginY: 4 }}>
               ONE STEP SOLUTION FOR YOU
             </Typography>
             {!isSmallScreen && (
               <Button
+              startIcon={<img src={ImagesPath.GetAQuoteIcon}/>}
                 variant="contained"
-                style={{ backgroundColor: "#38C64E", width: "50%" }}
+                style={{ backgroundColor: "#38C64E", width: "50%",margin:"5px 0 5px 0" }}
               >
                 Request a Quote
               </Button>

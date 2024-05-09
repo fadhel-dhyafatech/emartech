@@ -7,6 +7,7 @@ import ListingFilters from "../../components/listingPageComp/filter";
 import LisingMain from "../../components/listingPageComp/listing";
 import LisingPagination from "../../components/listingPageComp/listingPagination";
 import ShopByBrands from "../../components/listingPageComp/brandsShop";
+import { RequestBanner } from "@/components/common/requestBanner";
 
 const MainDiv = styled(Box)(({ theme }) => ({
   marginTop: "168px",
@@ -47,6 +48,7 @@ const ProductListing: FC = () => {
           </Grid>
 
           <ShopByBrands />
+          <RequestBanner/>
         </Container>
       </MainDiv>
       <Footer />

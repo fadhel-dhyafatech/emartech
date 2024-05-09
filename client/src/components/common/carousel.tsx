@@ -1,11 +1,50 @@
-import { Box } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import React from "react";
 import Slider from "react-slick";
 
 interface LogoCarouselProps {
   logos: string[]; // Array of image URLs
 }
+const CarouselMain = styled(Box)(({ theme }) => ({
+  marginTop: "4rem",
+  "& .slick-dots": {
+    bottom: "-5rem",
+    "& .slick-active": {
+      "& button": {
+        "&::before": {
+          border: "1px solid #39C64E !important",
+          background: "#39C64E !important",
+        },
+      },
+    },
+    "& li": {
+      padding: "unset !important",
+      width: "15px",
+      height: "15px",
 
+      "& button": {
+        position: "relative",
+        padding: "unset !important",
+        width: "15px",
+        height: "15px",
+        "&::before": {
+          fontSize: "15px",
+          background: "transparent",
+          opacity: "1",
+          color: "transparent",
+          border: "1px solid rgba(0, 0, 0, 1)",
+          width: "15px",
+          height: "15px",
+          padding: "unset !important",
+          borderRadius: "50%",
+        },
+      },
+    },
+  },
+  "& .slider-container": {
+    marginBottom: "10rem",
+  },
+}));
 export const CustomCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
   const settings = {
     dots: true, // Show dots only if there is more than one logo
@@ -48,20 +87,22 @@ export const CustomCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
   };
 
   return (
-    <Box
-      component="div"
-      className="slider-container"
-      justifyItems={"center"}
-      alignItems={"center"}
-      sx={{ marginY: 5 }}
-    >
-      <Slider {...settings}>
-        {logos.map((logo, index) => (
-          <div key={index}>
-            <img src={logo} alt={`Logo ${index}`} />
-          </div>
-        ))}
-      </Slider>
-    </Box>
+    <CarouselMain>
+      <Box
+        component="div"
+        className="slider-container"
+        justifyItems={"center"}
+        alignItems={"center"}
+        sx={{ marginY: 5 }}
+      >
+        <Slider {...settings}>
+          {logos.map((logo, index) => (
+            <div key={index}>
+              <img src={logo} alt={`Logo ${index}`} />
+            </div>
+          ))}
+        </Slider>
+      </Box>
+    </CarouselMain>
   );
 };

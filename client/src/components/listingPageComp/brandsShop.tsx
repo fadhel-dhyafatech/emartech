@@ -1,5 +1,7 @@
 import { FC } from "react";
 import { Box, styled } from "@mui/material";
+import { CustomCarousel } from "../common";
+import { SellersImages } from "@/constants";
 
 const StyledBox = styled(Box)(({ theme }: any) => ({
   ".sub-heading-text": {
@@ -38,6 +40,16 @@ const ShopByBrands: FC = () => {
         </span>
         Shop By Brands
       </h4>
+      <CustomCarousel
+            logos={[
+              SellersImages.BrandImage01,
+              SellersImages.BrandImage02,
+              SellersImages.BrandImage03,
+              SellersImages.BrandImage04,
+              SellersImages.BrandImage05,
+              SellersImages.BrandImage06,
+            ]}
+          />
     </StyledBox>
   );
 };
