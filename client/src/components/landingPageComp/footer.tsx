@@ -1,9 +1,8 @@
 import { FC, useState } from "react";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, Grid, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 import { StyledBoxContact } from "./contactUs";
-import { CategoryCard } from "../common/categoryCard";
 import { StyledBackgroundBox } from "@/styles";
 
 const StyledBoxFooter = styled(StyledBoxContact)({
@@ -49,24 +48,17 @@ export const Footer: FC = () => {
   return (
     <GradientBox>
       <FooterBox className="content-box no-background">
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "flex-start",
-            flexDirection: "row",
-          }}
-        >
-          <Box style={{ flexBasis: "25%", margin: "0px 10px 0 0" }}>
+        <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
+          <Grid item xs={12} sm={6} md={3} lg={3}>
             <img src="../../../src/assets/emartech-logo-white.svg" />
             <p className="para-text white-color">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s
             </p>
-          </Box>
+          </Grid>
 
-          <Box style={{ flexBasis: "25%", margin: "0px 5px 0 0" }}>
+          <Grid item xs={12} sm={6} md={3} lg={3}>
             <h4 className="sub-heading-text">
               <span className="line-span-holder">
                 <span className="line-span white" />
@@ -77,9 +69,9 @@ export const Footer: FC = () => {
             <p className="para-text white-color">ABOUT US</p>
             <p className="para-text white-color">PRIVACY POLICY</p>
             <p className="para-text white-color">FAQ’S</p>
-          </Box>
+          </Grid>
 
-          <Box style={{ flexBasis: "25%", margin: "0px 5px 0 0" }}>
+          <Grid item xs={12} sm={6} md={3} lg={3}>
             <h4 className="sub-heading-text">
               <span className="line-span-holder">
                 <span className="line-span white" />
@@ -107,39 +99,41 @@ export const Footer: FC = () => {
                 style={{ margin: "0 15px 0 0" }}
               />
             </Box>
-          </Box>
+          </Grid>
 
-          <StyledBoxFooter style={{ flexBasis: "25%", margin: "0px 5px 0 0" }}>
-            <h4 className="sub-heading-text">
-              <span className="line-span-holder">
-                <span className="line-span white" />
-                <span className="line-span white" />
-              </span>
-              NEWSLETTER
-            </h4>
-            <p className="para-text white-color">
-              ENTER YOUR EMAIL TO RECEIVE DAILY NEWS.
-            </p>
-            <Box className="content-holder">
-              <TextField
-                label="Enter your email"
-                variant="outlined"
-                value={email}
-                onChange={handleEmailChange}
-                fullWidth
-                margin="normal"
-              />
-              <Button
-                className="para-text white-color auth-btn radius-0"
-                variant="contained"
-                color="primary"
-                onClick={handleSubmit}
-              >
-                Subscribe
-              </Button>
-            </Box>
-          </StyledBoxFooter>
-        </Box>
+          <Grid item xs={12} sm={6} md={3} lg={3}>
+            <StyledBoxFooter>
+              <h4 className="sub-heading-text">
+                <span className="line-span-holder">
+                  <span className="line-span white" />
+                  <span className="line-span white" />
+                </span>
+                NEWSLETTER
+              </h4>
+              <p className="para-text white-color">
+                ENTER YOUR EMAIL TO RECEIVE DAILY NEWS.
+              </p>
+              <Box className="content-holder">
+                <TextField
+                  label="Enter your email"
+                  variant="outlined"
+                  value={email}
+                  onChange={handleEmailChange}
+                  fullWidth
+                  margin="normal"
+                />
+                <Button
+                  className="para-text white-color auth-btn radius-0"
+                  variant="contained"
+                  color="primary"
+                  onClick={handleSubmit}
+                >
+                  Subscribe
+                </Button>
+              </Box>
+            </StyledBoxFooter>
+          </Grid>
+        </Grid>
         <Box
           sx={{
             display: "flex",

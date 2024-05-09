@@ -8,6 +8,7 @@ import RequestBanner from "@/assets/images/RequestBanner.jpg";
 import HomeBanner01 from "@/assets/images/HomeBanner01.jpg";
 import HomeBanner02 from "@/assets/images/HomeBanner02.jpg";
 import HomeBanner03 from "@/assets/images/HomeBanner03.jpg";
+import GetAQuoteIcon from "@/assets/images/GetAQuoteIcon.svg";
 import WhiteLogo from "@/assets/logo-white.png";
 
 export const ImagesPath = {
@@ -16,6 +17,7 @@ export const ImagesPath = {
   HomeBanner03,
   RequestBanner,
   WhiteLogo,
+  GetAQuoteIcon,
 };
 
 export const SellersImages = {

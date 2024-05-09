@@ -1,1 +1,1 @@
-export * from "./requestBanner";
+export * from "../common/requestBanner";

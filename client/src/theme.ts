@@ -28,6 +28,8 @@ export const colorPalette = {
   yellow: "#FFFD91",
   grey89: "#e3e3e3",
   grey900: "#101828",
+  breadCrumbBackground: "#D9D9D9",
+  headingLinesGreen: "#39C64E",
 };
 
 const commonCss = {
