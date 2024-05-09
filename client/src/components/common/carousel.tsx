@@ -45,6 +45,7 @@ const CarouselMain = styled(Box)(({ theme }) => ({
     marginBottom: "10rem",
   },
 }));
+
 export const CustomCarousel: React.FC<LogoCarouselProps> = ({ logos }) => {
   const settings = {
     dots: true, // Show dots only if there is more than one logo

@@ -1,3 +1,4 @@
+import { TempImages } from "@/constants";
 import React, {
   Avatar,
   Box,
@@ -56,7 +57,10 @@ export const CategoryCard: FC<any> = ({ name, image }) => {
                 display: "flex",
               }}
             >
-              <Avatar src={image} sx={{ width: "100%", height: "100%" }} />
+              <Avatar
+                src={TempImages.DummyOne}
+                sx={{ width: "100%", height: "100%" }}
+              />
             </Box>
           </Box>
         </CardContent>

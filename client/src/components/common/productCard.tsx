@@ -16,7 +16,7 @@ interface ProductCardProps {
   discountedPrice: string;
   actualPrice: string;
   rating: number;
-  type?:string;
+  type?: string;
 }
 
 export const ProductCard: FC<ProductCardProps> = ({
@@ -25,15 +25,25 @@ export const ProductCard: FC<ProductCardProps> = ({
   discountedPrice,
   actualPrice,
   rating,
-  type
+  type,
 }) => {
   return (
-    <Grid item xs={12} sm={type ? 12 : 6} md={type ? 6 : 4} lg={type ? 4 : 2.39} xl={type ? 4 : 2} marginY={2}>
-      <Card sx={{
+    <Grid
+      item
+      xs={12}
+      sm={type ? 12 : 6}
+      md={type ? 6 : 4}
+      lg={type ? 4 : 2.39}
+      xl={type ? 4 : 2}
+      marginY={2}
+    >
+      <Card
+        sx={{
           borderRadius: 0,
           boxShadow: 0,
           border: "0.94px solid #E6E6E6",
-        }}>
+        }}
+      >
         <CardContent>
           <Grid container alignItems="center">
             {/* First Row: Sale Label and Avatar */}
@@ -54,8 +64,8 @@ export const ProductCard: FC<ProductCardProps> = ({
                 >
                   Sale 50%
                 </Typography>
-                <Box display="flex" justifyContent="center" padding={8}>
-                  <Avatar src={avatar} />
+                <Box display="flex" justifyContent="center" padding={6}>
+                  <Avatar src={avatar} sx={{ width: "90px", height: "90px" }} />
                 </Box>
               </Box>
             </Grid>

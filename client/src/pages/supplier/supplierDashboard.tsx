@@ -1,5 +1,5 @@
 // pages/Home.tsx
-import { Sidebar } from "@/components/common";
+import { AppBarComponent, Sidebar } from "@/components/common";
 
 import DashboardIcon from "@/assets/svgIcons/dashboard.svg";
 import InventoryIcon from "@/assets/svgIcons/inventory.svg";
@@ -59,6 +59,7 @@ export const SupplierDashboard = () => {
   return (
     <div>
       <Sidebar dummyList={dummyList} />
+      <AppBarComponent />
     </div>
   );
 };
