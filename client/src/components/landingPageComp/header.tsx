@@ -29,10 +29,14 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LanguageIcon from "@mui/icons-material/Language";
 import PersonIcon from "@mui/icons-material/Person";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 import { styled } from "@mui/system";
 // import { NavLinks } from "../common";
 import { SearchComponent } from "../inputs";
+import { useAuth } from "@/contextProviders/authentication";
+import { useNavigate } from "react-router-dom";
+import { setUserInLocalStorage } from "@/utils";
 
 const StyledAppBar = styled(AppBar)`
   background: green;
@@ -194,6 +198,8 @@ const dummyArray = [
 ];
 
 export const Header: React.FC = () => {
+  const { user, setUser } = useAuth() as any ;
+  const navigate = useNavigate()
   const [mobileOpen, setMobileOpen] = useState(false);
   const [languageAnchorEl, setLanguageAnchorEl] = React.useState(null);
 
@@ -209,6 +215,17 @@ export const Header: React.FC = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  const onLoginClick = () => {
+    if(user) return
+    else navigate("/login")
+  }
+
+  const onLogoutClick = () => {
+    setUserInLocalStorage(null)
+    setUser(null)
+    navigate("/login")
+  }
+
   const drawer = (
     <DrawerContainer>
       <Box
@@ -220,7 +237,7 @@ export const Header: React.FC = () => {
       >
         <Typography variant="h6" component="div" sx={{ padding: "16px" }}>
           <LogoImg
-            src={`../../../src/assets/emartech-logo.png`}
+            src={"../../../src/assets/emartech-logo.png"}
             alt="logo"
             sx={{ width: 100 }}
           />
@@ -326,7 +343,7 @@ export const Header: React.FC = () => {
             }}
           >
             <LogoImg
-              src={`../../../src/assets/emartech-logo-white.svg`}
+              src={"../../../src/assets/emartech-logo-white.svg"}
               alt="logo"
             />
           </Box>
@@ -389,12 +406,26 @@ export const Header: React.FC = () => {
             </Menu>
           </LanguageContainer>
           <PersonContainer>
-            <IconButton>
+            <IconButton onClick={onLoginClick}>
               <PersonIcon sx={{ color: "white" }} />
+              <Typography 
+                sx={{ marginLeft: "5px", color: "white" }} 
+                variant="body1"
+              >
+                {user ? user.firstName : "Login"}
+              </Typography>
             </IconButton>
-            <Typography variant="body1">Login</Typography>
             <VerticalLine sx={{ marginLeft: "10px", color: "white" }} />
-            <Typography variant="body1">SignUp</Typography>
+            {
+              user ?
+                <IconButton onClick={onLogoutClick}>
+                  <LogoutIcon sx={{ color: "white" }} />
+                </IconButton> : 
+                <Box onClick={() => navigate("/signup")}
+                  sx={{ display:"flex",alignItems:"center", cursor:"pointer" }}>               
+                  <Typography variant="body1">SignUp</Typography>            
+                </Box>
+            }
           </PersonContainer>
         </RowContainer>
       </StyledAppBar>

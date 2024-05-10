@@ -18,13 +18,11 @@ export const CategoryCard: FC<any> = ({ name, image }) => {
       sm={4}
       md={3}
       lg={2}
-      sx={{
-        marginY: 2,
-      }}
+
     >
       <Card
         sx={{
-          width: 200.58,
+          width: "100%",
           height: 199.77,
           display: "flex",
 
