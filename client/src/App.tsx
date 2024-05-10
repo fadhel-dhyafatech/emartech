@@ -14,6 +14,8 @@ import { LandingPage } from "./pages/landingPage";
 import ProductListing from "./pages/Product-Listing";
 import { HomePage } from "./pages/home";
 import { SupplierDashboard } from "./pages/supplier/supplierDashboard";
+import "./App.css"
+import { UserRoute } from "./authorization/user";
 
 export const App = () => {
   return (
@@ -35,8 +37,8 @@ export const App = () => {
               element={<ResetPasswordSuccess />}
             />
             <Route path="/productListing" element={<ProductListing />} />
-            <Route path="/dashboard" element={<LandingPage />} />
-            <Route path="/home" element={<HomePage />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/home" element={<UserRoute><HomePage/></UserRoute>} />
             <Route path="/supplier" element={<SupplierDashboard />} />
           </Routes>
         </AuthProvider>

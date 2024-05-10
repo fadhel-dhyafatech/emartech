@@ -21,6 +21,8 @@ import { loginFormSchema } from "@/schemas";
 
 import { AuthenticationWrapper } from "./authenticationWrapper";
 import { StyledCollapse } from "@/styles";
+import { useAuth } from "@/contextProviders/authentication";
+import { setUserInLocalStorage } from "../../utils";
 
 const initialValues = {
   email: "",
@@ -32,6 +34,7 @@ export const Login: FC = () => {
   const [loginError, setLoginError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
+  const { setUser } = useAuth() as any ;
 
   const handleSubmitAction = useCallback(
     (values: any) => {
@@ -39,10 +42,14 @@ export const Login: FC = () => {
       signInService(values, (err: any, response: any) => {
         setIsSubmitting(false);
         if (err) setLoginError(true);
-        if (response) navigate("/dashboard");
+        if (response) {
+          setUserInLocalStorage(response);
+          setUser(response);
+          navigate("/home")
+        }
       });
     },
-    [navigate]
+    [navigate, setUser]
   );
 
   const { values, handleChange, handleSubmit, isValid } = useForm({
@@ -137,3 +144,4 @@ export const Login: FC = () => {
     </AuthenticationWrapper>
   );
 };
+
