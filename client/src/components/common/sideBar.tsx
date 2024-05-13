@@ -89,24 +89,24 @@
 // };
 
 // components/Sidebar.js
-import * as React from "react";
-import { styled, Theme, CSSObject } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
+import { CSSObject, Theme, styled } from "@mui/material/styles";
+import * as React from "react";
 // import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 
-import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
+import List from "@mui/material/List";
 
+import MenuIcon from "@mui/icons-material/Menu";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import Collapse from "@mui/material/Collapse";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import Collapse from "@mui/material/Collapse";
 
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
@@ -216,13 +216,15 @@ export const Sidebar = ({ dummyList }: SidebarProps) => {
       <CssBaseline />
 
       <Drawer variant="permanent" open={open}>
-        <Box sx={{ height: "100%", backgroundColor: "#38C64E" }}>
+        <Box sx={{
+          height: "100%", background: "linear-gradient(270.59deg, #079759 0.48%, #35C350 99.47%)"
+        }}>
           <DrawerHeader>
             {open && (
               <img
-                src={`../../src/assets/emartech-logo-white.svg`}
+                src={`../../src/assets/images/dashboard-white-logo.svg`}
                 alt="logo"
-                // style={{ width: "120px" }}
+              // style={{ width: "120px" }}
               />
             )}
 
@@ -246,12 +248,12 @@ export const Sidebar = ({ dummyList }: SidebarProps) => {
                 >
                   <ListItemIcon>
                     {/* <InboxIcon /> */}
-                    <img src={item.icon} style={{ width: 24, height: 24 }} />
+                    <img src={item.icon} style={{ width: 20, height: 20 }} />
                   </ListItemIcon>
 
                   <ListItemText
                     primary={item.title}
-                    style={{ color: "white" }}
+                    style={{ color: "white", fontSize: "15px" }}
                   />
                   {item.subBtn &&
                     (openSubmenu === item.title ? (
