@@ -22,6 +22,8 @@ import ShippingQueue from "./pages/supplier/shipping-queue";
 import { SupplierDashboard } from "./pages/supplier/supplierDashboard";
 import { baseTheme } from "./theme";
 
+import TermsAndConditions from "./pages/TermsAndConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 export const App = () => {
   return (
@@ -49,6 +51,8 @@ export const App = () => {
             <Route path="/product-detail" element={<ProductdetailPage />} />
             <Route path="/manage-inventory" element={<ManageInventory />} />
             <Route path="/shipping-queue" element={<ShippingQueue />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
         </AuthProvider>
       </ThemeProvider>
