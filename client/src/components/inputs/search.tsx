@@ -1,20 +1,21 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
-import { InputBase, IconButton, Grid } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { Grid, IconButton, InputBase } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import * as React from "react";
 
 const SearchContainer = styled(Grid)({
   display: "flex",
   alignItems: "center",
   color: "white",
-  border: "1px solid #ccc",
+  border: "0px solid #ccc",
   borderRadius: "40px",
-  backgroundColor: "#d9d9d9",
-
+  backgroundColor: " #D9D9D94D",
   margin: "0px 10px",
   minWidth: "317px",
   height: "38px",
   width: "100%",
+
+
   "@media (max-width: 600px)": {
     margin: "0px 5px",
   },
@@ -22,6 +23,9 @@ const SearchContainer = styled(Grid)({
 
 const SearchInput = styled(InputBase)({
   margin: "8px",
+  paddingTop: "6px !important",
+  fontSize: "10.52px",
+  fontWeight: "500",
 });
 
 export const SearchComponent: React.FC = () => {

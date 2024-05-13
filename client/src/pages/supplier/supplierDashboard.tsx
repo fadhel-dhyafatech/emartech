@@ -1,13 +1,17 @@
 // pages/Home.tsx
 import { AppBarComponent, Sidebar } from "@/components/common";
 
+import CatalogIcon from "@/assets/svgIcons/catalog.svg";
 import DashboardIcon from "@/assets/svgIcons/dashboard.svg";
 import InventoryIcon from "@/assets/svgIcons/inventory.svg";
-import CatalogIcon from "@/assets/svgIcons/catalog.svg";
 import OrdersIcon from "@/assets/svgIcons/orders.svg";
-import ShipmentIcon from "@/assets/svgIcons/shipment.svg";
-import PerformanceIcon from "@/assets/svgIcons/performance.svg";
 import PaymentsIcon from "@/assets/svgIcons/payments.svg";
+import PerformanceIcon from "@/assets/svgIcons/performance.svg";
+import ShipmentIcon from "@/assets/svgIcons/shipment.svg";
+import Widgets from "@/components/supplierComponent/Widgets";
+import Chart from "@/components/supplierComponent/chart";
+import TableComponent from "@/components/supplierComponent/table.component";
+import "../../components/supplierComponent/supplierStyle.scss";
 
 const dummyList = [
   {
@@ -60,6 +64,11 @@ export const SupplierDashboard = () => {
     <div>
       <Sidebar dummyList={dummyList} />
       <AppBarComponent />
+      <main>
+        <Widgets />
+        <Chart />
+        <TableComponent />
+      </main>
     </div>
   );
 };
