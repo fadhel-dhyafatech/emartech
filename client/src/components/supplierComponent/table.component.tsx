@@ -1,6 +1,26 @@
-import PaginationComponent from "./pagination-component";
+import PaginationComponent from "../common/pagination";
+
 
 const TableComponent = () => {
+    const TableData = [
+        {
+            Referance: " CUK-21500031-COC",
+            Date: "  19/03/2024 18:51:59",
+            Amount: "     AED 1,225.09",
+            Payment: "  VISA",
+            Status: "   Shipped"
+
+
+        },
+        {
+            Referance: " CUK-21500031-COC",
+            Date: "  19/03/2024 18:51:59",
+            Amount: "     AED 1,225.09",
+            Payment: "  VISA",
+            Status: "   Shipped"
+
+
+        }]
     return (
         <div className="table-content">
             <h1>Recent Orders</h1>
@@ -29,48 +49,30 @@ const TableComponent = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                CUK-21500031-COC
-                            </td>
-                            <td>
-                                19/03/2024 18:51:59
-                            </td>
-                            <td>
-                                AED 1,225.09
-                            </td>
-                            <td>
-                                VISA
-                            </td>
-                            <td>
-                                Shipped
-                            </td>
-                            <td className="d-flex justify-content-between">
-                                CC189259091BE
-                                <button className="view-button">View Detail</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                CUK-21500031-COC
-                            </td>
-                            <td>
-                                19/03/2024 18:51:59
-                            </td>
-                            <td>
-                                AED 1,225.09
-                            </td>
-                            <td>
-                                VISA
-                            </td>
-                            <td>
-                                Shipped
-                            </td>
-                            <td className="d-flex justify-content-between">
-                                CC189259091BE
-                                <button className="view-button">View Detail</button>
-                            </td>
-                        </tr>
+                        {TableData.map((item, i) => (
+                            <tr>
+                                <td>
+                                    {item.Referance}
+                                </td>
+                                <td>
+                                    {item.Date}
+                                </td>
+                                <td>
+                                    {item.Amount}
+                                </td>
+                                <td>
+                                    {item.Status}
+                                </td>
+                                <td>
+                                    Shipped
+                                </td>
+                                <td className="d-flex justify-content-between">
+                                    CC189259091BE
+                                    <button className="view-button">View Detail</button>
+                                </td>
+                            </tr>
+                        ))}
+
                     </tbody>
                 </table>
             </div>
