@@ -12,8 +12,11 @@ import { ExpandMore } from "@mui/icons-material";
 import Menu from "@mui/material/Menu";
 import profile from "../../assets/images/images-profile.svg";
 import { SearchComponent } from "../inputs";
+import { styled } from "@mui/material";
+import { drawerWidth } from "./sideBar";
+import { FC } from "react";
 
-export const AppBarComponent = () => {
+export const AppBarComponent : FC<any>  = ({ isDrawerOpen }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -45,7 +48,7 @@ export const AppBarComponent = () => {
 
   const [toogle, setToogle] = React.useState(false);
   return (
-    <AppBar
+    <CustomAppBar
       position="fixed"
       sx={{
         // justifyContent: "flex-end",
@@ -53,6 +56,7 @@ export const AppBarComponent = () => {
         backgroundColor: "#FFF",
         boxShadow: "none"
       }}
+      open={isDrawerOpen}
     >
       <Toolbar>
         <SearchComponent />
@@ -127,6 +131,24 @@ export const AppBarComponent = () => {
           <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
         </Menu>
       </Toolbar>
-    </AppBar>
+    </CustomAppBar>
   );
 };
+
+
+const CustomAppBar  = styled(AppBar, {
+  shouldForwardProp: (prop) => prop !== "open",
+})<any>(({ theme, open }) => ({
+  transition: theme.transitions.create(["width", "margin"], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
