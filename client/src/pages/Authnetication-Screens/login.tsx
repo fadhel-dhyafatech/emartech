@@ -23,6 +23,12 @@ import { AuthenticationWrapper } from "./authenticationWrapper";
 import { StyledCollapse } from "@/styles";
 import { useAuth } from "@/contextProviders/authentication";
 import { setUserInLocalStorage } from "../../utils";
+import { useLoginUserMutation } from "@/services/authService";
+import { isBadRequest } from "@/utils/utility-functions";
+import { Form, Formik, FormikErrors } from "formik";
+import { ILoginUser } from "@/types/model";
+import FormikField from "@/components/inputs/FormikField";
+import LoginBgImage from "@/assets/login.png";
 
 const initialValues = {
   email: "",
@@ -30,45 +36,76 @@ const initialValues = {
 };
 
 export const Login: FC = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [loginError, setLoginError] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
+  // const [loginError, setLoginError] = useState(false);
+  // const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
-  const { setUser } = useAuth() as any ;
+  const { setUser } = useAuth() as any;
 
-  const handleSubmitAction = useCallback(
-    (values: any) => {
-      setIsSubmitting(true);
-      signInService(values, (err: any, response: any) => {
-        setIsSubmitting(false);
-        if (err) setLoginError(true);
-        if (response) {
-          setUserInLocalStorage(response);
-          setUser(response);
-          navigate("/home")
-        }
-      });
-    },
-    [navigate, setUser]
-  );
+  const [loginUser, { data, isLoading, error, isError }] =
+    useLoginUserMutation();
 
-  const { values, handleChange, handleSubmit, isValid } = useForm({
-    initialValues,
-    handleSubmitAction,
-    validationSchema: loginFormSchema,
-  });
+  console.log("DATA", data);
+  console.log("error in login", error);
+
+  // const handleSubmitAction = useCallback(
+  //   (values: any, setSubmitting: any, setErrors: any) => {
+  //     // setIsSubmitting(true);
+  //     // signInService(values, (err: any, response: any) => {
+  //     //   setIsSubmitting(false);
+  //     //   if (err) setLoginError(true);
+  //     //   if (response) {
+  //     //     setUserInLocalStorage(response);
+  //     //     setUser(response);
+  //     //     navigate("/home")
+  //     //   }
+  //     // });
+  //   },
+  //   [navigate, setUser]
+  // );
+
+  // const {
+  //   values,
+  //   handleChange,
+  //   handleSubmit,
+  //   isValid,
+  //   isSubmitting,
+  //   setSubmitting,
+  //   setErrors,
+  // } = useForm({
+  //   initialValues,
+  //   handleSubmitAction,
+  //   validationSchema: loginFormSchema,
+  // });
 
   return (
-    <AuthenticationWrapper backgroundImageUrl="../../../src/assets/login.png">
-      <form autoComplete="off" noValidate onSubmit={handleSubmit}>
-        <Typography className="auth-heading">Login</Typography>
-        <Box className="form-container flex-center">
-          <StyledCollapse in={loginError}>
+    <AuthenticationWrapper backgroundImageUrl={LoginBgImage}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={loginFormSchema}
+        onSubmit={(values, { setSubmitting, setErrors }) => {
+          loginUser(values).then((res) => {
+            console.log("RES", res);
+            if ("error" in res && isBadRequest(res.error)) {
+              setErrors(res.error.data as FormikErrors<ILoginUser>);
+            }
+            setSubmitting(false);
+          });
+        }}
+      >
+        {({ isValid }) => {
+          console.log("isValid", isValid);
+          return (
+            <Form autoComplete="off" noValidate className="d-flex flex-column">
+              {/* <form autoComplete="off" noValidate onSubmit={handleSubmit}> */}
+              <Typography className="auth-heading">Login</Typography>
+              <Box className="form-container ">
+                {/* <StyledCollapse in={loginError}>
             <Alert severity="error" onClose={() => setLoginError(false)}>
               Invalid credentials
             </Alert>
-          </StyledCollapse>
-          <InputField
+          </StyledCollapse> */}
+                {/* <InputField
             label="Email address or phone number"
             labelClassName="input-label"
             name="email"
@@ -95,53 +132,60 @@ export const Login: FC = () => {
               ),
             }}
             onChange={handleChange}
-          />
-          <Button
-            className="auth-btn input-label"
-            disabled={!isValid || isSubmitting}
-            type="submit"
-            variant={ButtonVariants.OUTLINED}
-          >
-            Login
+          /> */}
+                {/* UPDATED FORMIK FIELDS */}
+                <FormikField type="email" name="email" required />
+                <FormikField type="password" name="password" required />
+                <Button
+                  className="auth-btn input-label"
+                  disabled={!isValid}
+                  type="submit"
+                  variant={ButtonVariants.OUTLINED}
+                >
+                  {isLoading ? "Logging in..." : "Login"}
+                </Button>
+              </Box>
+            </Form>
+          );
+        }}
+      </Formik>
+
+      <Box className="link-holder">
+        <Link href="/forgotPassword" className="link input-label">
+          Forgot Password?
+        </Link>
+      </Box>
+      <Box>
+        <Box className="flex-center position-relative divider-box">
+          <Divider />
+          <Box component={"span"} className="span-content input-label">
+            Or login using
+          </Box>
+        </Box>
+        <Box className="flex-center flex-col">
+          <Button className="input-label" variant={ButtonVariants.OUTLINED}>
+            <GoogleIcon />
+            Continue with Google
+          </Button>
+          <Button className="input-label" variant={ButtonVariants.OUTLINED}>
+            <AppleIcon />
+            Continue with Apple
           </Button>
         </Box>
-        <Box className="link-holder">
-          <Link href="/forgotPassword" className="link input-label">
-            Forgot Password?
-          </Link>
+        <Box className="flex-center sign-up-box">
+          <Typography
+            className="input-label text-center"
+            variant="body1"
+            gutterBottom
+          >
+            Don't have an account?
+            <Link href="/signup" className="link sign-up">
+              Sign Up
+            </Link>
+          </Typography>
         </Box>
-        <Box>
-          <Box className="flex-center position-relative divider-box">
-            <Divider />
-            <Box component={"span"} className="span-content input-label">
-              Or login using
-            </Box>
-          </Box>
-          <Box className="flex-center flex-col">
-            <Button className="input-label" variant={ButtonVariants.OUTLINED}>
-              <GoogleIcon />
-              Continue with Google
-            </Button>
-            <Button className="input-label" variant={ButtonVariants.OUTLINED}>
-              <AppleIcon />
-              Continue with Apple
-            </Button>
-          </Box>
-          <Box className="flex-center sign-up-box">
-            <Typography
-              className="input-label text-center"
-              variant="body1"
-              gutterBottom
-            >
-              Don't have an account?
-              <Link href="/signup" className="link sign-up">
-                Sign Up
-              </Link>
-            </Typography>
-          </Box>
-        </Box>
-      </form>
+      </Box>
+      {/* </form> */}
     </AuthenticationWrapper>
   );
 };
-
