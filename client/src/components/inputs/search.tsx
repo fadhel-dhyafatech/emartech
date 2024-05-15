@@ -3,6 +3,10 @@ import { Grid, IconButton, InputBase } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import * as React from "react";
 
+interface SearchComponentProps {
+  onSearch: (query: string) => void;
+}
+
 const SearchContainer = styled(Grid)({
   display: "flex",
   alignItems: "center",
@@ -27,8 +31,11 @@ const SearchInput = styled(InputBase)({
   fontSize: "10.52px",
   fontWeight: "500",
 });
+export const SearchComponent: React.FC<SearchComponentProps> = ({ onSearch }) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onSearch(event.target.value);
+  };
 
-export const SearchComponent: React.FC = () => {
   return (
     <SearchContainer>
       <SearchInput
@@ -36,6 +43,7 @@ export const SearchComponent: React.FC = () => {
         margin="dense"
         placeholder="Looking For..."
         fullWidth
+        onChange={handleInputChange}
       />
       <IconButton>
         <SearchIcon sx={{ color: "#9E9E9E" }} />

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import tableimage from "../../assets/images/table-image.svg";
 import PaginationComponent from "../common/pagination";
 
@@ -44,6 +45,16 @@ const ManagetableComponent = () => {
 
 
         }]
+    const itemsPerPage = 2; // Set items per page
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const handlePageChange = (event: any, value: any) => {
+        setCurrentPage(value);
+    };
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = TableData.slice(indexOfFirstItem, indexOfLastItem);
     return (
         <div className="table-manage">
 
@@ -78,8 +89,8 @@ const ManagetableComponent = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {TableData.map((item, i) => (
-                            <tr>
+                        {currentItems.map((item, i) => (
+                            <tr key={i}>
                                 <td>
                                     {item.Status}
                                 </td>
@@ -130,7 +141,9 @@ const ManagetableComponent = () => {
                     </tbody>
                 </table>
             </div>
-            <PaginationComponent />
+            <PaginationComponent count={Math.ceil(TableData.length / itemsPerPage)}
+                page={currentPage}
+                onPageChange={handlePageChange} />
         </div>
     )
 }
