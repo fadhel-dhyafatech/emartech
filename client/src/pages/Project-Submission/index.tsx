@@ -30,7 +30,7 @@ const ProjectSubmission: FC = () => {
       <ProjectSubmissionMain>
         <Container maxWidth="xl">
           <Grid container>
-            <Grid xs={12} lg={8}>
+            <Grid item xs={12} lg={8}>
               <h1 className="auth-heading">
                 Post your Project & meet with{" "}
                 <span className="headingSpanColor">the Best</span>
@@ -42,7 +42,7 @@ const ProjectSubmission: FC = () => {
               </p>
               <ProjectSubmissionForm />
             </Grid>
-            <Grid xs={12} lg={4}></Grid>
+            <Grid item xs={12} lg={4}></Grid>
           </Grid>
         </Container>
       </ProjectSubmissionMain>

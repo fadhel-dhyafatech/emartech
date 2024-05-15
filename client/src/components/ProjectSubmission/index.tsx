@@ -17,6 +17,8 @@ import {
   Box,
 } from "@mui/material";
 import ProjectFormDropZone from "./dropZone";
+import { createProjectService } from "@/services/projectServiceCalls";
+import { getFormData } from "@/utils";
 
 const SubmissionFormContainer = styled(Box)(({ theme }: any) => ({
   "& .formMain": {
@@ -76,6 +78,37 @@ const SubmissionFormContainer = styled(Box)(({ theme }: any) => ({
     "& .MuiFormHelperText-contained": {
       color: "#FF0101",
     },
+    "& .skillBoxContainer": {
+      display: "flex",
+      alignItems: "center",
+      flexWrap: "wrap",
+      gap: "1rem",
+      "& .skillTagDiv": {
+        background: "#F6F6F6",
+        padding: "10px 20px 10px 20px",
+        borderRadius: "100px",
+        color: "#ADADAD",
+      },
+    },
+    "& .formButtons": {
+      display: "flex",
+      alignItems: "center",
+      gap: "15px",
+      justifyContent: "end",
+      "& button": {
+        width: "180px",
+      },
+      "& .submitBtn": {
+        backgroundColor: theme.palette.common.headingLinesGreen,
+        borderColor: theme.palette.common.headingLinesGreen,
+        "& .spanText": {
+          fontSize: "30px",
+          lineHeight: 0,
+          paddingLeft: "0.5rem",
+          marginTop: "-3px",
+        },
+      },
+    },
   },
 }));
 
@@ -89,7 +122,7 @@ const initialValues = {
   location: "",
   charge: "",
   proposalCount: "",
-  projectType: "byProject",
+  projectType: "BY PROJECT",
   skills: "",
 };
 
@@ -99,12 +132,23 @@ const validationSchema = Yup.object().shape({
   subCategory: Yup.string().required("*please select sub category"),
   // projectDescription: Yup.string().required("Project description is required"),
   projectFiles: Yup.array().min(1, "*at least one file is required"),
-  projectValue: Yup.number().required("*please enter project value"),
+  projectValue: Yup.string().required("*please enter project value"),
   location: Yup.string().required("*please enter location it’s important"),
   // charge: Yup.string().required("Charge is required"),
-  proposalCount: Yup.number().required("*please enter proposal quantity"),
+  proposalCount: Yup.number()
+    .required("*please enter proposal quantity")
+    .min(1, "*proposal count must be between or equal to 1 and 10")
+    .max(10, "*proposal count must be between or equal to 1 and 10"),
   projectType: Yup.string().required("Project type is required"),
-  // skills: Yup.string().required("Skills and expertise are required"),
+  skills: Yup.string().test(
+    "maxSkills",
+    "*only 15 skills can be added",
+    (value) => {
+      if (!value) return true; // Pass if value is empty or undefined
+      const skillsArray = value.split(",").map((skill) => skill.trim());
+      return skillsArray.length <= 15;
+    }
+  ),
 });
 
 const categories: any = ["Category 1", "Category 2", "Category 3"];
@@ -117,9 +161,15 @@ const subCategories: any = {
 const ProjectSubmissionForm: FC = () => {
   const onSubmit = (values: any) => {
     // Handle form submission here
-    console.log(values);
+    const body = getFormData(values);
+    createProjectService(body, (err: any, response: any) => {
+      if (err) {
+      }
+      if (response) {
+        console.log(response);
+      }
+    });
   };
-
   return (
     <SubmissionFormContainer>
       <Formik
@@ -228,15 +278,14 @@ const ProjectSubmissionForm: FC = () => {
                 </FormControl>
               </Grid>
               <Grid item xs={12}>
-                <h4 className="sub-heading-text">Describe your project</h4>
-                <p className="para-text"></p>
-
                 <FormControl fullWidth margin="normal">
                   <ProjectFormDropZone
                     setFieldValue={setFieldValue}
                     values={values}
                   />
-                  <ErrorMessage name="projectFiles" />
+                  <p className="MuiFormHelperText-root MuiFormHelperText-sizeSmall MuiFormHelperText-contained css-1l18pnj-MuiFormHelperText-root">
+                    <ErrorMessage name="projectFiles" />
+                  </p>
                 </FormControl>
               </Grid>
 
@@ -322,12 +371,12 @@ const ProjectSubmissionForm: FC = () => {
                     {({ field }: any) => (
                       <RadioGroup row {...field}>
                         <FormControlLabel
-                          value="byProject"
+                          value="BY PROJECT"
                           control={<Radio size="small" />}
                           label="By Project"
                         />
                         <FormControlLabel
-                          value="milestones"
+                          value="MILESTONES"
                           control={<Radio size="small" />}
                           label="Milestones"
                         />
@@ -351,15 +400,32 @@ const ProjectSubmissionForm: FC = () => {
                     variant="outlined"
                     size="small"
                     error={false}
+                    InputProps={{ placeholder: "Enter here" }}
                     helperText={<ErrorMessage name="skills" />}
                   />
                 </FormControl>
               </Grid>
+              <Grid item xs={12}>
+                <Box className="skillBoxContainer">
+                  {!!values.skills?.length &&
+                    values.skills
+                      ?.split(",")
+                      ?.map((item: any, index: number) => (
+                        <Box key={item + index} className="skillTagDiv">
+                          {item}
+                        </Box>
+                      ))}
+                </Box>
+              </Grid>
             </Grid>
-
-            <Button type="submit" variant="contained" color="primary">
-              Submit
-            </Button>
+            <Box className="formButtons">
+              <Button type="button" variant="outlined" color="inherit">
+                Save as draft
+              </Button>
+              <Button type="submit" variant="contained" className="submitBtn">
+                Submit <span className="spanText">&#129170;</span>
+              </Button>
+            </Box>
           </Form>
         )}
       </Formik>
