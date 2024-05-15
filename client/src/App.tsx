@@ -18,6 +18,7 @@ import { HomePage } from "./pages/home";
 import { LandingPage } from "./pages/landingPage";
 import { ProductdetailPage } from "./pages/productdetailPage";
 import ManageInventory from "./pages/supplier/manage-inventory";
+import ShipmentSummary from "./pages/supplier/shipment-summary";
 import ShippingQueue from "./pages/supplier/shipping-queue";
 import { SupplierDashboard } from "./pages/supplier/supplierDashboard";
 import { baseTheme } from "./theme";
@@ -49,6 +50,7 @@ export const App = () => {
             <Route path="/product-detail" element={<ProductdetailPage />} />
             <Route path="/manage-inventory" element={<ManageInventory />} />
             <Route path="/shipping-queue" element={<ShippingQueue />} />
+            <Route path="/shipment-summary" element={<ShipmentSummary />} />
           </Routes>
         </AuthProvider>
       </ThemeProvider>
