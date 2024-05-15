@@ -7,7 +7,6 @@ import PerformanceIcon from "@/assets/svgIcons/performance.svg";
 import ShipmentIcon from "@/assets/svgIcons/shipment.svg";
 import { AppBarComponent } from "@/components/common/appBar";
 import { Sidebar } from "@/components/common/sideBar";
-import ShippingtableComponent from "@/components/supplierComponent/Shippingtable.Component";
 import ShippingQueueComponent from "@/components/supplierComponent/shippingqueue.component";
 import "../../components/supplierComponent/supplierStyle.scss";
 
@@ -64,7 +63,7 @@ const ShippingQueue = () => {
             <AppBarComponent />
             <main>
                 <ShippingQueueComponent />
-                <ShippingtableComponent />
+
             </main>
         </div>
     )

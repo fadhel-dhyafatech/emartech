@@ -1,7 +1,140 @@
-import PaginationComponent from "../common/pagination"
+import { useState } from "react";
+import PaginationComponent from "../common/pagination";
 
-const ShippingtableComponent = () => {
+const ShippingtableComponent = ({ searchQuery }: any) => {
     const TableData = [
+        {
+            ShipmentName: "STA (04/02/2024 22:20)-ORF2",
+            ShipmentNamespan: "17WJ0NWHX, 3GWCDU9R",
+            LastUpdated: ["Apr 14, 2024", <br />, <span>6:24 AM</span>],
+            Date: "Apr 2, 20243: 20 PM",
+            ShipTo: "Ahmed",
+            status: "Closed",
+            className: "Closed"
+
+
+        },
+        {
+            ShipmentName: "STA (04/02/2024 22:20)-ORF2",
+            ShipmentNamespan: "17WJ0NWHX, 3GWCDU9R",
+            LastUpdated: ["Apr 14, 2024", <br />, <span>6:24 AM</span>],
+            Date: "Apr 2, 20243: 20 PM",
+            ShipTo: "Ahmed",
+            status: "Pending",
+            className: "Pending"
+
+
+        },
+        {
+            ShipmentName: "STA (04/02/2024 22:20)-ORF2",
+            ShipmentNamespan: "17WJ0NWHX, 3GWCDU9R",
+            LastUpdated: ["Apr 14, 2024", <br />, <span>6:24 AM</span>],
+            Date: "Apr 2, 20243: 20 PM",
+            ShipTo: "Ahmed",
+            status: "Delivered",
+            className: "Delivered"
+
+
+        },
+        {
+            ShipmentName: "STA (04/02/2024 22:20)-ORF2",
+            ShipmentNamespan: "17WJ0NWHX, 3GWCDU9R",
+            LastUpdated: ["Apr 14, 2024", <br />, <span>6:24 AM</span>],
+            Date: "Apr 2, 20243: 20 PM",
+            ShipTo: "Ahmed",
+            status: "Closed",
+            className: "Closed"
+
+
+        },
+        {
+            ShipmentName: "STA (04/02/2024 22:20)-ORF2",
+            ShipmentNamespan: "17WJ0NWHX, 3GWCDU9R",
+            LastUpdated: ["Apr 14, 2024", <br />, <span>6:24 AM</span>],
+            Date: "Apr 2, 20243: 20 PM",
+            ShipTo: "Ahmed",
+            status: "Pending",
+            className: "Pending"
+
+
+        },
+        {
+            ShipmentName: "STA (04/02/2024 22:20)-ORF2",
+            ShipmentNamespan: "17WJ0NWHX, 3GWCDU9R",
+            LastUpdated: ["Apr 14, 2024", <br />, <span>6:24 AM</span>],
+            Date: "Apr 2, 20243: 20 PM",
+            ShipTo: "Ahmed",
+            status: "Delivered",
+            className: "Delivered"
+
+
+        },
+        {
+            ShipmentName: "STA (04/02/2024 22:20)-ORF2",
+            ShipmentNamespan: "heelo",
+            LastUpdated: ["Apr 14, 2024", <br />, <span>6:24 AM</span>],
+            Date: "Apr 2, 20243: 20 PM",
+            ShipTo: "Ahmed",
+            status: "Closed",
+            className: "Closed"
+
+
+        },
+        {
+            ShipmentName: "STA (04/02/2024 22:20)-ORF2",
+            ShipmentNamespan: "hello",
+            LastUpdated: ["Apr 14, 2024", <br />, <span>6:24 AM</span>],
+            Date: "Apr 2, 20243: 20 PM",
+            ShipTo: "Ahmed",
+            status: "Pending",
+            className: "Pending"
+
+
+        },
+        {
+            ShipmentName: "STA (04/02/2024 22:20)-ORF2",
+            ShipmentNamespan: "17WJ0NWHX, 3GWCDU9R",
+            LastUpdated: ["Apr 14, 2024", <br />, <span>6:24 AM</span>],
+            Date: "Apr 2, 20243: 20 PM",
+            ShipTo: "Ahmed",
+            status: "Delivered",
+            className: "Delivered"
+
+
+        },
+        {
+            ShipmentName: "STA (04/02/2024 22:20)-ORF2",
+            ShipmentNamespan: "17WJ0NWHX, 3GWCDU9R",
+            LastUpdated: ["Apr 14, 2024", <br />, <span>6:24 AM</span>],
+            Date: "Apr 2, 20243: 20 PM",
+            ShipTo: "Ahmed",
+            status: "Closed",
+            className: "Closed"
+
+
+        },
+        {
+            ShipmentName: "STA (04/02/2024 22:20)-ORF2",
+            ShipmentNamespan: "17WJ0NWHX, 3GWCDU9R",
+            LastUpdated: ["Apr 14, 2024", <br />, <span>6:24 AM</span>],
+            Date: "Apr 2, 20243: 20 PM",
+            ShipTo: "Ahmed",
+            status: "Pending",
+            className: "Pending"
+
+
+        },
+        {
+            ShipmentName: "STA (04/02/2024 22:20)-ORF2",
+            ShipmentNamespan: "hello",
+            LastUpdated: ["Apr 14, 2024", <br />, <span>6:24 AM</span>],
+            Date: "Apr 2, 20243: 20 PM",
+            ShipTo: "Ahmed",
+            status: "Delivered",
+            className: "Delivered"
+
+
+        },
         {
             ShipmentName: "STA (04/02/2024 22:20)-ORF2",
             ShipmentNamespan: "17WJ0NWHX, 3GWCDU9R",
@@ -46,6 +179,23 @@ const ShippingtableComponent = () => {
 
 
         }]
+    const itemsPerPage = 4; // Set items per page
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const handlePageChange = (event: any, value: any) => {
+        setCurrentPage(value);
+    };
+
+    const filteredData = TableData.filter(item =>
+        item.ShipmentName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.ShipmentNamespan.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.status.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+
     return (
         <div className="table-manage">
             <div className="responsive-table">
@@ -78,8 +228,8 @@ const ShippingtableComponent = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {TableData.map((item, i) => (
-                            <tr>
+                        {currentItems.map((item, i) => (
+                            <tr key={i}>
                                 <td>
                                     {item.ShipmentName}
                                     <span>{item.ShipmentNamespan}</span>
@@ -121,7 +271,10 @@ const ShippingtableComponent = () => {
                     </tbody>
                 </table>
             </div>
-            <PaginationComponent />
+            <PaginationComponent
+                count={Math.ceil(TableData.length / itemsPerPage)}
+                page={currentPage}
+                onPageChange={handlePageChange} />
             <p className="mt-3">* Please note that you may have an obligation to self report and pay sales and use, property, income, and other taxes/fees imposed by the states
                 and localities where your inventory is located.</p>
         </div>

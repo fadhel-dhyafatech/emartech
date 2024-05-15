@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PaginationComponent from "../common/pagination";
 
 
@@ -21,6 +22,16 @@ const TableComponent = () => {
 
 
         }]
+    const itemsPerPage = 4; // Set items per page
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const handlePageChange = (event: any, value: any) => {
+        setCurrentPage(value);
+    };
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = TableData.slice(indexOfFirstItem, indexOfLastItem);
     return (
         <div className="table-content">
             <h1>Recent Orders</h1>
@@ -49,7 +60,7 @@ const TableComponent = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {TableData.map((item, i) => (
+                        {currentItems.map((item, i) => (
                             <tr>
                                 <td>
                                     {item.Referance}
@@ -76,7 +87,10 @@ const TableComponent = () => {
                     </tbody>
                 </table>
             </div>
-            <PaginationComponent />
+            <PaginationComponent
+                count={Math.ceil(TableData.length / itemsPerPage)}
+                page={currentPage}
+                onPageChange={handlePageChange} />
         </div>
     )
 }
