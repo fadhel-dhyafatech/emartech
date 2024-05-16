@@ -40,25 +40,25 @@ export const OurPartners: FC = () => {
       <Box sx={{ display: "flex" }}>
         <Box>
           <img
-            src="../../src/assets/Rectangle 1371.png"
+            src="Rectangle 1371.png"
             style={{ maxWidth: "100%", width: "auto", height: "100%" }}
           />
         </Box>
         <Box>
           <img
-            src="../../src/assets/Rectangle 1372.png"
+            src="Rectangle 1372.png"
             style={{ maxWidth: "100%", width: "auto", height: "100%" }}
           />
         </Box>
         <Box>
           <img
-            src="../../src/assets/Rectangle 1373.png"
+            src="Rectangle 1373.png"
             style={{ maxWidth: "100%", width: "auto", height: "100%" }}
           />
         </Box>
         <Box>
           <img
-            src="../../src/assets/Rectangle 1374.png"
+            src="Rectangle 1374.png"
             style={{ maxWidth: "100%", width: "auto", height: "100%" }}
           />
         </Box>

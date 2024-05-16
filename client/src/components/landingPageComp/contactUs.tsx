@@ -185,7 +185,7 @@ export const ContactUs: FC = () => {
                 className="para-text margin-0 mb-30"
                 sx={{ display: "flex", alignItems: "flex-start" }}
               >
-                <img src="../../src/assets/Phone.png" />
+                <img src="Phone.png" />
                 <Container>
                   <h4 className="para-text margin-0">OUR PHONE</h4>
                   <p className="para-text margin-0 opacity-50">
@@ -200,7 +200,7 @@ export const ContactUs: FC = () => {
                 className="para-text margin-0 mb-30"
                 sx={{ display: "flex", alignItems: "flex-start" }}
               >
-                <img src="../../src/assets/Email.png" />
+                <img src="Email.png" />
                 <Container>
                   <h4 className="para-text margin-0">OUR EMAIL</h4>
                   <p className="para-text margin-0 opacity-50">
@@ -215,7 +215,7 @@ export const ContactUs: FC = () => {
                 className="para-text margin-0 mb-30"
                 sx={{ display: "flex", alignItems: "flex-start" }}
               >
-                <img src="../../src/assets/Location on.png" />
+                <img src="Location on.png" />
                 <Container>
                   <h4 className="para-text margin-0">OUR LOCATION</h4>
                   <p className="para-text margin-0 opacity-50">

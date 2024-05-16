@@ -4,6 +4,7 @@ import { styled } from "@mui/material/styles";
 
 import { StyledBoxContact } from "./contactUs";
 import { StyledBackgroundBox } from "@/styles";
+import EmartechWhiteLogo from "@/assets/emartech-logo-white.svg";
 
 const StyledBoxFooter = styled(StyledBoxContact)({
   margin: "0 !important",
@@ -50,7 +51,7 @@ export const Footer: FC = () => {
       <FooterBox className="content-box no-background">
         <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
           <Grid item xs={12} sm={6} md={3} lg={3}>
-            <img src="../../../src/assets/emartech-logo-white.svg" />
+            <img src={EmartechWhiteLogo} />
             <p className="para-text white-color">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
@@ -86,18 +87,9 @@ export const Footer: FC = () => {
             <p className="para-text white-color">+971 456 7890 - Office</p>
             <p className="para-text white-color">Info@gmail.com</p>
             <Box>
-              <img
-                src="../../src/assets/Vector.png"
-                style={{ margin: "0 15px 0 0" }}
-              />
-              <img
-                src="../../src/assets/Vector (1).png"
-                style={{ margin: "0 15px 0 0" }}
-              />
-              <img
-                src="../../src/assets/Vector (2).png"
-                style={{ margin: "0 15px 0 0" }}
-              />
+              <img src="Vector.png" style={{ margin: "0 15px 0 0" }} />
+              <img src="Vector (1).png" style={{ margin: "0 15px 0 0" }} />
+              <img src="Vector (2).png" style={{ margin: "0 15px 0 0" }} />
             </Box>
           </Grid>
 

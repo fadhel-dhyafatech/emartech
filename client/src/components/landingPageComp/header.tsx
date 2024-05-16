@@ -37,7 +37,7 @@ import { SearchComponent } from "../inputs";
 import { useAuth } from "@/contextProviders/authentication";
 import { useNavigate } from "react-router-dom";
 import { setUserInLocalStorage } from "@/utils";
-import EmartechLogo from "../../../src/assets/emartech-logo-white.svg";
+import EmartechLogo from "@/assets/emartech-logo-white.svg";
 
 const StyledAppBar = styled(AppBar)`
   background: green;
@@ -199,8 +199,8 @@ const dummyArray = [
 ];
 
 export const Header: React.FC = () => {
-  const { user, setUser } = useAuth() as any ;
-  const navigate = useNavigate()
+  const { user, setUser } = useAuth() as any;
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [languageAnchorEl, setLanguageAnchorEl] = React.useState(null);
 
@@ -217,15 +217,15 @@ export const Header: React.FC = () => {
   };
 
   const onLoginClick = () => {
-    if(user) return
-    else navigate("/login")
-  }
+    if (user) return;
+    else navigate("/login");
+  };
 
   const onLogoutClick = () => {
-    setUserInLocalStorage(null)
-    setUser(null)
-    navigate("/login")
-  }
+    setUserInLocalStorage(null);
+    setUser(null);
+    navigate("/login");
+  };
 
   const drawer = (
     <DrawerContainer>
@@ -237,11 +237,7 @@ export const Header: React.FC = () => {
         }}
       >
         <Typography variant="h6" component="div" sx={{ padding: "16px" }}>
-          <LogoImg
-            src={"/emartech/emartech-logo.png"}
-            alt="logo"
-            sx={{ width: 100 }}
-          />
+          <LogoImg src={"emartech-logo.png"} alt="logo" sx={{ width: 100 }} />
         </Typography>
         <IconButton onClick={() => setMobileOpen(false)}>
           <CloseIcon />
@@ -343,10 +339,7 @@ export const Header: React.FC = () => {
               display: { md: "block" },
             }}
           >
-            <LogoImg
-              src={"../../../src/assets/emartech-logo-white.svg"}
-              alt="logo"
-            />
+            <LogoImg src={EmartechLogo} alt="logo" />
           </Box>
           <NavLinks>
             <StyledLink href="#">HOME</StyledLink>
@@ -409,24 +402,30 @@ export const Header: React.FC = () => {
           <PersonContainer>
             <IconButton onClick={onLoginClick}>
               <PersonIcon sx={{ color: "white" }} />
-              <Typography 
-                sx={{ marginLeft: "5px", color: "white" }} 
+              <Typography
+                sx={{ marginLeft: "5px", color: "white" }}
                 variant="body1"
               >
                 {user ? user.firstName : "Login"}
               </Typography>
             </IconButton>
             <VerticalLine sx={{ marginLeft: "10px", color: "white" }} />
-            {
-              user ?
-                <IconButton onClick={onLogoutClick}>
-                  <LogoutIcon sx={{ color: "white" }} />
-                </IconButton> : 
-                <Box onClick={() => navigate("/signup")}
-                  sx={{ display:"flex",alignItems:"center", cursor:"pointer" }}>               
-                  <Typography variant="body1">SignUp</Typography>            
-                </Box>
-            }
+            {user ? (
+              <IconButton onClick={onLogoutClick}>
+                <LogoutIcon sx={{ color: "white" }} />
+              </IconButton>
+            ) : (
+              <Box
+                onClick={() => navigate("/signup")}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  cursor: "pointer",
+                }}
+              >
+                <Typography variant="body1">SignUp</Typography>
+              </Box>
+            )}
           </PersonContainer>
         </RowContainer>
       </StyledAppBar>

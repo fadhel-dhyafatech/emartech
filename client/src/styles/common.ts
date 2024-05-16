@@ -57,7 +57,7 @@ export const StyledBackgroundBox = styled(Box)<any>(
     flex: "1",
     minHeight: "48vh",
     "&.image-box": {
-      backgroundImage: "url('../../../src/assets/build.jpg')",
+      backgroundImage: "url('build.jpg')",
     },
     "&.content-box": {
       display: "flex",

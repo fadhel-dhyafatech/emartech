@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { StyledBackgroundBox } from "@/styles";
+import ServicesLogo from "@/assets/Group 2.svg";
 
 const CardHeaderStyle = {
   display: "flex",
@@ -153,11 +154,7 @@ export const OurServices: FC = () => {
                     >
                       {item.title}
                     </Typography>
-                    <img
-                      src="../../src/assets/Group 2.svg"
-                      alt="Icon"
-                      style={{ width: 30 }}
-                    />
+                    <img src={ServicesLogo} alt="Icon" style={{ width: 30 }} />
                   </Box>
                   <StyledTypography className="para-text">
                     {item.description}
