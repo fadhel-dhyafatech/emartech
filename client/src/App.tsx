@@ -25,6 +25,8 @@ import ProjectSubmission from "./pages/Project-Submission";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import SubmissionCongrats from "./pages/Project-Submission/congrats";
+import ProjectListing from "./pages/Project-Listing";
+
 
 export const App = () => {
   return (
@@ -50,14 +52,13 @@ export const App = () => {
             <Route path="/home" element={<UserRoute><HomePage /></UserRoute>} />
             <Route path="/supplier" element={<SupplierDashboard />} />
             <Route path="/product-detail" element={<ProductdetailPage />} />
-            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/manage-inventory" element={<ManageInventory />} />
             <Route path="/shipping-queue" element={<ShippingQueue />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/projectSubmission" element={<ProjectSubmission />} />
             <Route path="/congrats" element={<SubmissionCongrats />} />
+            <Route path="/projectListing" element={<ProjectListing />} />
           </Routes>
         </AuthProvider>
       </ThemeProvider>
