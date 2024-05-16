@@ -24,6 +24,7 @@ import { baseTheme } from "./theme";
 import ProjectSubmission from "./pages/Project-Submission";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import SubmissionCongrats from "./pages/Project-Submission/congrats";
 
 export const App = () => {
   return (
@@ -54,6 +55,7 @@ export const App = () => {
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/project-submission" element={<ProjectSubmission />} />
+            <Route path="/congrats" element={<SubmissionCongrats />} />
           </Routes>
         </AuthProvider>
       </ThemeProvider>

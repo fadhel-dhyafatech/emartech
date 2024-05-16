@@ -19,6 +19,7 @@ import {
 import ProjectFormDropZone from "./dropZone";
 import { createProjectService } from "@/services/projectServiceCalls";
 import { getFormData } from "@/utils";
+import { useNavigate } from "react-router-dom";
 
 const SubmissionFormContainer = styled(Box)(({ theme }: any) => ({
   "& .formMain": {
@@ -159,6 +160,8 @@ const subCategories: any = {
 };
 
 const ProjectSubmissionForm: FC = () => {
+  const navigate = useNavigate();
+
   const onSubmit = (values: any) => {
     // Handle form submission here
     const body = getFormData(values);
@@ -166,7 +169,7 @@ const ProjectSubmissionForm: FC = () => {
       if (err) {
       }
       if (response) {
-        console.log(response);
+        navigate("/congrats");
       }
     });
   };
