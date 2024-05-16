@@ -3,11 +3,6 @@ export const getUserFromLocalStorage = () => {
   return user && user !==  "undefined"  ? JSON.parse(user) : null;
 };
 
-export const getJWToken = () => {
-  const { accessToken } = getUserFromLocalStorage() ?? {};
-  return accessToken;
-};
-
-export const setUserInLocalStorage = (user: any) => {
-  localStorage.setItem("user", user ? JSON.stringify(user) : JSON.stringify(null));
+export const setUserInLocalStorage = (user : any) => {
+  localStorage.setItem("user", user ? JSON.stringify(user) : "undefined");
 };

@@ -1,17 +1,12 @@
-import {
-  Button,
-  IconButton,
-  InputAdornment,
-  Typography,
-} from "@mui/material";
-import { InputField } from "../../components/inputs";
-import { ButtonVariants } from "../../components/constants";
+import { Button, IconButton, InputAdornment, Typography } from "@mui/material";
+import { InputField } from "@/components/inputs";
+import { ButtonVariants } from "@/components/constants";
 import { FC, useCallback, useMemo, useState } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "../../hooks/useForm";
-import { resetPasswordSchema } from "../../schemas";
-import { resetPassword } from "../../services/userServiceCalls";
+import { useForm } from "@/hooks/useForm";
+import { resetPasswordSchema } from "@/schemas";
+import { resetPassword } from "@/services/userServiceCalls";
 import { AuthenticationWrapper } from "./index";
 
 const initialValues = {
@@ -19,7 +14,7 @@ const initialValues = {
   confirmPassword: "",
 };
 
-export const ResetPassword : FC = () => {
+export const ResetPassword: FC = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(false);
@@ -78,7 +73,7 @@ export const ResetPassword : FC = () => {
   // );
 
   return (
-    <AuthenticationWrapper>
+    <AuthenticationWrapper backgroundImageUrl="../../../src/assets/signup.png">
       <form autoComplete="off" noValidate onSubmit={handleSubmit}>
         <Typography className="auth-heading">Reset Password</Typography>
         <InputField
@@ -92,9 +87,7 @@ export const ResetPassword : FC = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton
-                  onClick={() => setShowPassword((prev) => !prev)}
-                >
+                <IconButton onClick={() => setShowPassword((prev) => !prev)}>
                   {showPassword ? (
                     <Icon icon="eva:eye-fill" />
                   ) : (
@@ -118,9 +111,7 @@ export const ResetPassword : FC = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton
-                  onClick={() => setConfirmPassword((prev) => !prev)}
-                >
+                <IconButton onClick={() => setConfirmPassword((prev) => !prev)}>
                   {confirmPassword ? (
                     <Icon icon="eva:eye-fill" />
                   ) : (
@@ -139,7 +130,7 @@ export const ResetPassword : FC = () => {
           type="submit"
           variant={ButtonVariants.OUTLINED}
         >
-                Reset Password
+          Reset Password
         </Button>
       </form>
     </AuthenticationWrapper>

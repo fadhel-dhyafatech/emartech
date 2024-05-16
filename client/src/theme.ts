@@ -28,6 +28,8 @@ export const colorPalette = {
   yellow: "#FFFD91",
   grey89: "#e3e3e3",
   grey900: "#101828",
+  breadCrumbBackground: "#D9D9D9",
+  headingLinesGreen: "#39C64E",
 };
 
 const commonCss = {
@@ -321,6 +323,9 @@ export const baseTheme = createTheme({
         ".sub-heading-text": {
           fontSize: "12px",
           margin: "0",
+        },
+        ".black-color": {
+          color: "rgba(0, 0, 0, 0.87) !important",
         },
         ".heading-text": {
           fontSize: "26px",
@@ -671,7 +676,11 @@ export const baseTheme = createTheme({
           padding: "13px 15px",
           transition: "none",
           border: "1px solid rgba(0, 0, 0, 0.23)",
+          "&.radius-0": {
+            borderRadius: "0",
+          },
           "&.auth-btn": {
+            border: "none",
             background:
               "linear-gradient(90deg, rgba(6,150,88,1) 0%, rgba(6,150,88,1) 35%, rgba(56,198,78,1) 100%)",
             "&.input-label": {
