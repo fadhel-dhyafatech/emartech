@@ -54,7 +54,7 @@ export const App = () => {
             <Route path="/shipping-queue" element={<ShippingQueue />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/project-submission" element={<ProjectSubmission />} />
+            <Route path="/projectSubmission" element={<ProjectSubmission />} />
             <Route path="/congrats" element={<SubmissionCongrats />} />
           </Routes>
         </AuthProvider>
