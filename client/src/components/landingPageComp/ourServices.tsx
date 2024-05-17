@@ -120,9 +120,12 @@ export const OurServices: FC = () => {
           </Box>
           <Box className="para-text-holder">
             <p className="para-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s
+              Emartech offers a marketplace for construction materials services,
+              providing transparent pricing, timely delivery, and quality
+              contractor connections. Our dashboards offer real-time project and
+              supplier insights, and our bidding service ensures competitive
+              proposals. Comprehensive customer assistance ensures informed
+              decision-making and project success.
             </p>
           </Box>
         </Box>

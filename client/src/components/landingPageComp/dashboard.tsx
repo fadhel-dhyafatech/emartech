@@ -128,9 +128,9 @@ export const Dashboard: FC = () => {
         </h4>
         <h1 className="heading-text white-color">Build Everything You Need</h1>
         <p className="para-text white-color">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s
+          Emartech revolutionizes project monitoring, resource management, and
+          procurement in construction, offering promoters real-time insights and
+          tools for streamlined project oversight and issue tracking.
         </p>
         <Button
           className="para-text white-color auth-btn"

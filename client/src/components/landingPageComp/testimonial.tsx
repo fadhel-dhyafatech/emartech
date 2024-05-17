@@ -171,39 +171,56 @@ export const Testimonial: FC = () => {
               {dummyArray.map((item, index) => (
                 <SwiperSlide key={index}>
                   <Box sx={{ display: "flex", justifyContent: "center" }}>
-                    <Container>
-                      <Card
+                    <Card
+                      sx={{
+                        marginTop: "30px",
+
+                        maxWidth: 900,
+                        position: "relative",
+                        marginBottom: 5,
+                        overflow: "visible",
+                        width: "100%",
+                      }}
+                    >
+                      <img
+                        src={item.image}
+                        alt="Image Not Found"
+                        // style={{ position: "absolute", top: -30, right: 30 }}
+                        style={{
+                          position: "absolute",
+                          top: -30,
+                          right: 30,
+
+                          zIndex: 1,
+                          maxHeight: windowWidth < 768 ? "150px" : "300px",
+                          maxWidth: windowWidth < 768 ? "80px" : "300px",
+                        }}
+                      />
+                      <CardContent
                         sx={{
-                          marginTop: "30px",
-                          maxWidth: 768,
-                          position: "relative",
-                          marginBottom: 2,
-                          overflow: "visible",
+                          padding: windowWidth < 768 ? "10px" : "20px",
                         }}
                       >
-                        <img
-                          src={item.image}
-                          alt="Image Not Found"
-                          style={{ position: "absolute", top: -30, right: 30 }}
-                        />
-                        <CardContent>
-                          <Typography gutterBottom variant="h5" component="div">
-                            {item.title}
-                          </Typography>
-                          <Typography gutterBottom variant="h6" component="div">
-                            {item.subTitle}
-                          </Typography>
-                          <Rating
-                            name="read-only"
-                            value={item.rating}
-                            readOnly
-                          />
-                          <Typography variant="body2" color="text.secondary">
-                            {item.description}
-                          </Typography>
-                        </CardContent>
-                      </Card>
-                    </Container>
+                        <Typography
+                          gutterBottom
+                          variant={windowWidth < 768 ? "subtitle1" : "h5"}
+                          component="div"
+                        >
+                          {item.title}
+                        </Typography>
+                        <Typography
+                          gutterBottom
+                          variant={windowWidth < 768 ? "subtitle2" : "h6"}
+                          component="div"
+                        >
+                          {item.subTitle}
+                        </Typography>
+                        <Rating name="read-only" value={item.rating} readOnly />
+                        <Typography variant="body2" color="text.secondary">
+                          {item.description}
+                        </Typography>
+                      </CardContent>
+                    </Card>
                   </Box>
                 </SwiperSlide>
               ))}

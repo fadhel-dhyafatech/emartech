@@ -189,11 +189,11 @@ export const ContactUs: FC = () => {
                 <Container>
                   <h4 className="para-text margin-0">OUR PHONE</h4>
                   <p className="para-text margin-0 opacity-50">
-                    +971 456 7890 - Office
+                    +966 11 232 7775
                   </p>
-                  <p className="para-text margin-0 opacity-50">
+                  {/* <p className="para-text margin-0 opacity-50">
                     +971 456 7890 - Fax
-                  </p>
+                  </p> */}
                 </Container>
               </Box>
               <Box
@@ -204,11 +204,11 @@ export const ContactUs: FC = () => {
                 <Container>
                   <h4 className="para-text margin-0">OUR EMAIL</h4>
                   <p className="para-text margin-0 opacity-50">
-                    sales@gmail.com
+                    Admin@Emarahtech.com
                   </p>
-                  <p className="para-text margin-0 opacity-50">
+                  {/* <p className="para-text margin-0 opacity-50">
                     info@gmail.com
-                  </p>
+                  </p> */}
                 </Container>
               </Box>
               <Box
@@ -219,7 +219,8 @@ export const ContactUs: FC = () => {
                 <Container>
                   <h4 className="para-text margin-0">OUR LOCATION</h4>
                   <p className="para-text margin-0 opacity-50">
-                    Box No. 214396, Dubai
+                    2533 Street Al Imam Saoud Bin Faisal, Hiteen district 13512,
+                    Riyadh
                   </p>
                 </Container>
               </Box>

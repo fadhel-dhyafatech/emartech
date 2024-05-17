@@ -53,9 +53,10 @@ export const Footer: FC = () => {
           <Grid item xs={12} sm={6} md={3} lg={3}>
             <img src={EmartechWhiteLogo} />
             <p className="para-text white-color">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s
+              Emartech revolutionizes construction with real-time project and
+              supplier insights, a materials and services marketplace, and
+              comprehensive support for informed decision-making and project
+              success.
             </p>
           </Grid>
 
@@ -82,10 +83,11 @@ export const Footer: FC = () => {
             </h4>
 
             <p className="para-text white-color">
-              Box No. 214396, Deira, Dubai
+              2533 Street Al Imam Saoud Bin Faisal, Hiteen district 13512,
+              Riyadh
             </p>
-            <p className="para-text white-color">+971 456 7890 - Office</p>
-            <p className="para-text white-color">Info@gmail.com</p>
+            <p className="para-text white-color">+966 11 232 7775 - Office</p>
+            <p className="para-text white-color">Admin@Emarahtech.com</p>
             <Box>
               <img src="Vector.png" style={{ margin: "0 15px 0 0" }} />
               <img src="Vector (1).png" style={{ margin: "0 15px 0 0" }} />
