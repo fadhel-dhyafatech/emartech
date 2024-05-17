@@ -31,7 +31,7 @@ const dummyArray = [
   {
     id: 2,
     title: "Sarah L.",
-    subTitle: "Operations Director at PrimeConstructions Ltd.",
+    subTitle: "Operations Director at Prime Constructions Ltd.",
     rating: 5,
     image: "Rectangle 48.jpg",
     description:
@@ -49,7 +49,7 @@ const dummyArray = [
   {
     id: 4,
     title: "Sarah L.",
-    subTitle: "Operations Director at PrimeConstructions Ltd.",
+    subTitle: "Operations Director at Prime Constructions Ltd.",
     rating: 5,
     image: "Rectangle 48.jpg",
     description:
@@ -202,6 +202,7 @@ export const Testimonial: FC = () => {
                         <Typography
                           gutterBottom
                           variant={windowWidth < 768 ? "subtitle2" : "h7"}
+                          sx={{ width: windowWidth < 768 ? "60%" : "100%" }}
                           component="div"
                         >
                           {item.subTitle}
