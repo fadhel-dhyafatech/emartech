@@ -1,18 +1,22 @@
 import * as React from "react";
 // import { styled } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AppBar from "@mui/material/AppBar";
+import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
+import Toolbar from "@mui/material/Toolbar";
 
-import Menu from "@mui/material/Menu";
-import { SearchComponent } from "../inputs";
 import { ExpandMore } from "@mui/icons-material";
+import Menu from "@mui/material/Menu";
+import profile from "../../assets/images/images-profile.svg";
+import { SearchComponent } from "../inputs";
+import { styled } from "@mui/material";
+import { drawerWidth } from "./sideBar";
+import { FC } from "react";
 
-export const AppBarComponent = () => {
+export const AppBarComponent : FC<any>  = ({ isDrawerOpen }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -23,23 +27,78 @@ export const AppBarComponent = () => {
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
+  const notification = [
+    {
+      userName: "Ahmed",
+      description: "Baag"
+    },
+    {
+      userName: "Ahmed",
+      description: "Baag"
+    },
+    {
+      userName: "Ahmed",
+      description: "Baag"
+    },
+    {
+      userName: "Ahmed",
+      description: "Baag"
+    }
+  ]
 
+  const [toogle, setToogle] = React.useState(false);
   return (
-    <AppBar
+    <CustomAppBar
       position="fixed"
       sx={{
         // justifyContent: "flex-end",
         alignItems: "flex-end",
         backgroundColor: "#FFF",
+        boxShadow: "none"
       }}
+      open={isDrawerOpen}
     >
       <Toolbar>
         <SearchComponent />
-        <IconButton>
-          <MailOutlinedIcon />
+        <IconButton className="position-relative">
+          <div onClick={() => setToogle(!toogle)}>
+
+            <MailOutlinedIcon />
+          </div>
+          {toogle &&
+            <div className="notification-content">
+              <h1>New Messages</h1>
+              <div className="notifictaion-body">
+                {notification.map((item, index) => (
+                  <div className="d-flex inner-content justify-content-between"
+                    key={index}>
+
+                    <div className="d-flex ">
+                      <div className="flex-shrink-0">
+                        <img src={profile} alt="img not found" />
+                      </div>
+                      <div className="flex-grow-1 ms-3">
+                        <h2>{item.userName}</h2>
+                        <p>{item.description}</p>
+                      </div>
+                    </div>
+                    <div>
+
+                      <span>Today, 12.11pm</span>
+                      <div className="notification">
+                        <span>1</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button className="notification-button">See All Messages</button>
+            </div>
+          }
         </IconButton>
         <IconButton>
           <NotificationsNoneOutlinedIcon />
+
         </IconButton>
 
         <IconButton
@@ -72,6 +131,24 @@ export const AppBarComponent = () => {
           <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
         </Menu>
       </Toolbar>
-    </AppBar>
+    </CustomAppBar>
   );
 };
+
+
+const CustomAppBar  = styled(AppBar, {
+  shouldForwardProp: (prop) => prop !== "open",
+})<any>(({ theme, open }) => ({
+  transition: theme.transitions.create(["width", "margin"], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));

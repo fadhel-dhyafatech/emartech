@@ -1,7 +1,9 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
+import "./App.css";
 import "./assets/mainStyle.scss";
+import { UserRoute } from "./authorization/user";
 import { AuthProvider } from "./contextProviders/authentication";
 import {
   EmailVerification,
@@ -11,14 +13,14 @@ import {
   ResetPasswordSuccess,
   Signup,
 } from "./pages/Authnetication-Screens/index";
-import { LandingPage } from "./pages/landingPage";
 import ProductListing from "./pages/Product-Listing";
 import { HomePage } from "./pages/home";
-import { SupplierDashboard } from "./pages/supplier/supplierDashboard";
-import { UserRoute } from "./authorization/user";
+import { LandingPage } from "./pages/landingPage";
 import { ProductdetailPage } from "./pages/productdetailPage";
+import ManageInventory from "./pages/supplier/manage-inventory";
+import ShippingQueue from "./pages/supplier/shipping-queue";
+import { SupplierDashboard } from "./pages/supplier/supplierDashboard";
 import { baseTheme } from "./theme";
-import "./App.css"
 
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -44,11 +46,13 @@ export const App = () => {
             />
             <Route path="/productListing" element={<ProductListing />} />
             <Route path="/" element={<LandingPage />} />
-            <Route path="/home" element={<UserRoute><HomePage/></UserRoute>} />
+            <Route path="/home" element={<UserRoute><HomePage /></UserRoute>} />
             <Route path="/supplier" element={<SupplierDashboard />} />
             <Route path="/product-detail" element={<ProductdetailPage />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/manage-inventory" element={<ManageInventory />} />
+            <Route path="/shipping-queue" element={<ShippingQueue />} />
           </Routes>
         </AuthProvider>
       </ThemeProvider>
