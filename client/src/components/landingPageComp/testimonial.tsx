@@ -21,48 +21,39 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 const dummyArray = [
   {
     id: 1,
-    title: "Lorem Ipsume 01",
-    subTitle: "Lorem Ipsum 01",
+    title: "John D.",
+    subTitle: "Senior Project Manager at BuildRight Inc.",
     rating: 3,
     image: "Rectangle 48.jpg",
     description:
-      "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+      "Emartech's real-time project insights and comprehensive marketplace have streamlined our construction processes. Their support team is top-notch, making informed decision-making effortless. ",
   },
   {
     id: 2,
-    title: "Lorem Ipsume 02",
-    subTitle: "Lorem Ipsum 02",
+    title: "Sarah L.",
+    subTitle: "Operations Director at PrimeConstructions Ltd.",
     rating: 5,
     image: "Rectangle 48.jpg",
     description:
-      "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+      "With Emartech, we get instant insights and easy access to quality materials and services. Their platform has improved our efficiency and project success rates significantly.",
   },
   {
     id: 3,
-    title: "Lorem Ipsume 03",
-    subTitle: "Lorem Ipsum 03",
-    rating: 2,
+    title: "John D.",
+    subTitle: "Senior Project Manager at BuildRight Inc.",
+    rating: 3,
     image: "Rectangle 48.jpg",
     description:
-      "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+      "Emartech's real-time project insights and comprehensive marketplace have streamlined our construction processes. Their support team is top-notch, making informed decision-making effortless. ",
   },
   {
     id: 4,
-    title: "Lorem Ipsume 04",
-    subTitle: "Lorem Ipsum 04",
-    rating: 1,
-    image: "Rectangle 48.jpg",
-    description:
-      "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
-  },
-  {
-    id: 5,
-    title: "Lorem Ipsume 05",
-    subTitle: "Lorem Ipsum 05",
+    title: "Sarah L.",
+    subTitle: "Operations Director at PrimeConstructions Ltd.",
     rating: 5,
     image: "Rectangle 48.jpg",
     description:
-      "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+      "With Emartech, we get instant insights and easy access to quality materials and services. Their platform has improved our efficiency and project success rates significantly.",
   },
 ];
 
@@ -210,7 +201,7 @@ export const Testimonial: FC = () => {
                         </Typography>
                         <Typography
                           gutterBottom
-                          variant={windowWidth < 768 ? "subtitle2" : "h6"}
+                          variant={windowWidth < 768 ? "subtitle2" : "h7"}
                           component="div"
                         >
                           {item.subTitle}
