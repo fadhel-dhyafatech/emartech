@@ -20,6 +20,8 @@ import { ProductdetailPage } from "./pages/productdetailPage";
 import { baseTheme } from "./theme";
 import "./App.css"
 
+import TermsAndConditions from "./pages/TermsAndConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 export const App = () => {
   return (
@@ -45,6 +47,8 @@ export const App = () => {
             <Route path="/home" element={<UserRoute><HomePage/></UserRoute>} />
             <Route path="/supplier" element={<SupplierDashboard />} />
             <Route path="/product-detail" element={<ProductdetailPage />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
         </AuthProvider>
       </ThemeProvider>
