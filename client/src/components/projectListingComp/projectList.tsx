@@ -16,6 +16,7 @@ const ListProjectMainDiv = styled(Box)(({ theme }: any) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+    flexWrap: "wrap",
     "& .auth-heading": {
       fontWeight: "700",
       color: "rgba(20, 20, 20, 1)",
@@ -175,10 +176,10 @@ const ListProjectWithHeader: FC = () => {
       {arrayToMap.map((item) => (
         <Box key={JSON.stringify(item)} className="projectBoxContainer">
           <Grid container spacing={3}>
-            <Grid item xs={2}>
+            <Grid item xs={12} sm={2}>
               <img src={item.img} alt="project image" />
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12} sm={10}>
               <h5> {item.title}</h5>
               <Box className="subtitle-flex">
                 <h4>{item.subTitle}</h4>
