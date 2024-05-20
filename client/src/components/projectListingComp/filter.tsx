@@ -94,7 +94,7 @@ const ProjectListingFilters: FC = () => {
   ];
   return (
     <FiltersMain>
-      <h4 className="sub-heading-text">Filter</h4>
+      <h4 className="sub-heading-text" style={{fontWeight:"700"}}>Filter</h4>
       {arrayToMap?.map((item: any) => (
         <>
           <h4 className="sub-heading-text">{item.title}</h4>
